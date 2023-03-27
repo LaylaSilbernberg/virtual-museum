@@ -2,6 +2,9 @@ package tetrad.virtualmuseum.DAO;
 
 import jakarta.persistence.*;
 
+import java.util.Collection;
+import java.util.List;
+
 @Entity
 @Table(name = "tblGallery")
 public class Gallery {
@@ -10,16 +13,17 @@ public class Gallery {
     private int id;
     private String galleryName;
     private String description;
-    private String imageId;
+    @OneToMany(mappedBy = "gallery")
+    private List<Image> image;
 
     public Gallery() {
     }
 
-    public Gallery(int id, String galleryName, String description, String imageId) {
+    public Gallery(int id, String galleryName, String description, List<Image> image) {
         this.id = id;
         this.galleryName = galleryName;
         this.description = description;
-        this.imageId = imageId;
+        this.image = image;
     }
 
     public int getId() {
@@ -46,11 +50,11 @@ public class Gallery {
         this.description = description;
     }
 
-    public String getImageId() {
-        return imageId;
+    public List<Image> getImage() {
+        return image;
     }
 
-    public void setImageId(String imageId) {
-        this.imageId = imageId;
+    public void setImage(List<Image> image) {
+        this.image = image;
     }
 }
