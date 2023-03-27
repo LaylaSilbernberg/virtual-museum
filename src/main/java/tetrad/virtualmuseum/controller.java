@@ -1,14 +1,13 @@
-package controller;
+package tetrad.virtualmuseum;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.service;
+import tetrad.virtualmuseum.service.service;
 import tetrad.virtualmuseum.DAO.Gallery;
 
 import java.net.URI;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -20,16 +19,23 @@ public class controller {
         this.service = service;
     }
 
-    @PostMapping("/saveGallery")
-    public ResponseEntity<Gallery> saveGallery(@RequestParam Gallery gallery, HttpServletRequest req) {
-        URI location = URI.create(req.getRequestURL() + "/" + gallery.getId());
-        return ResponseEntity.created(location).body(gallery);
+    @PostMapping("/createEmptyGallery")
+    public ResponseEntity<Gallery> createEmptyGallery(HttpServletRequest req) {
+        URI location = URI.create(req.getRequestURL() + "/" + service.createGallery());
+        //Service.createGallery creates an empty gallery and returns its respective id
+        return ResponseEntity.created(location).body(service.getGalleryById(String.valueOf(service.createGallery())));
 
     }
 
     @GetMapping("/getGallery/{id}")
     public ResponseEntity<Gallery> getGallery(@PathVariable String id) {
         return ResponseEntity.ok().body(service.getGalleryById(id));
+    }
+
+    @PatchMapping("/updateGallery")
+    public ResponseEntity<?> updateGallery(@RequestBody Gallery gallery) {
+        service.saveGallery(gallery);
+        return ResponseEntity.ok(gallery.getId() + " successfully updated");
     }
 
 

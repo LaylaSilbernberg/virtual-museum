@@ -1,11 +1,10 @@
-package service;
+package tetrad.virtualmuseum.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import repository.galleryRepo;
+import org.springframework.stereotype.Service;
+import tetrad.virtualmuseum.repository.galleryRepo;
 import tetrad.virtualmuseum.DAO.Gallery;
-
-import java.util.Optional;
-
+@Service
 public class service {
     private galleryRepo repo;
 
@@ -21,5 +20,10 @@ public class service {
     repo.save(gallery);
     }
 
+    public int createGallery(){
+        Gallery gallery = new Gallery();
+        repo.save(gallery);
+        return gallery.getId();
+    }
 
 }
