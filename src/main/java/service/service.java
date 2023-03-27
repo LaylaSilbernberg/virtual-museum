@@ -1,23 +1,24 @@
 package service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import repository.imageRepo;
+import repository.galleryRepo;
+import tetrad.virtualmuseum.DAO.Gallery;
 
-import java.util.List;
+import java.util.Optional;
 
 public class service {
-    private imageRepo repo;
+    private galleryRepo repo;
 
-    public service(@Autowired imageRepo repo){
+    public service(@Autowired galleryRepo repo){
         this.repo=repo;
     }
 
-    public List<String> findAll(){
-        return repo.findAll();
+    public Gallery getGalleryById(String id){
+        return repo.findGalleryById(Integer.valueOf(id));
     }
 
-    public void saveImage(String url){
-        repo.save(url);
+    public void saveGallery(Gallery gallery){
+    repo.save(gallery);
     }
 
 
