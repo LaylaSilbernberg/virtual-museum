@@ -20,5 +20,10 @@ public class service {
     repo.save(gallery);
     }
 
+    public int createGallery(){
+        Gallery gallery = new Gallery();
+        repo.save(gallery);
+        return gallery.getId();
+    }
 
 }
