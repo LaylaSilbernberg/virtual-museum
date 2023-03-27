@@ -1,5 +1,7 @@
 ## default connection pool
 debug: true
+server:
+  port: 8080
 spring:
   sql:
     init:
