@@ -3,6 +3,7 @@ package tetrad.virtualmuseum.DAO;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "tblImage")
 public class Image {
 
     @Id
