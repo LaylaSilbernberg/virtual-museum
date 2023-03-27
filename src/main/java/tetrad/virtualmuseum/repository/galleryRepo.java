@@ -1,9 +1,7 @@
-package repository;
+package tetrad.virtualmuseum.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import tetrad.virtualmuseum.DAO.Gallery;
-
-import java.util.Optional;
 
 public interface galleryRepo extends JpaRepository<Gallery, Integer> {
 
