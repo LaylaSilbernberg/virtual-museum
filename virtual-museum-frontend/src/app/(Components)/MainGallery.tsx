@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import  {Data} from '../(Interfaces)/interfaces'
+import Artworks from './Artworks';
 
 const MainGallery = () => {
 
@@ -25,7 +26,12 @@ const MainGallery = () => {
   return (
     <div className='placeholder__div'>
    {mainPage?.map((element) => {
-        return <p key={element.id} className='placeholder__p'>{element.title}</p>
+        return <Artworks
+        key={element.id}
+        artist_display = {element.artist_display}
+        title = {element.title}
+        place_of_origin = {element.place_of_origin}
+        image_id = {element.image_id} />
 })}
     </div>
   )
