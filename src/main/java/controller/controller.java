@@ -12,6 +12,6 @@ public class controller {
     @GetMapping
     public ResponseEntity<String> getApi()
     {
-        return ResponseEntity.ok("Hello people");
+        return ResponseEntity.ok("Hello, pretty people");
     }
 }
