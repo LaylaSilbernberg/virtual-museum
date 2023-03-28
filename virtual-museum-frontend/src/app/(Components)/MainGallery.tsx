@@ -7,7 +7,6 @@ const MainGallery = () => {
     const [mainPage, setMainPage] = useState<Data[]>();
 
     const getRandomPage = async() => {
-        console.log("I fire")
         const totalPages = 9964;
         const limit = 8;
         const fields = "id,title,place_of_origin,department_title,thumbnail,department_id,gallery_title,gallery_id,artist_display,image_id";
@@ -24,7 +23,7 @@ const MainGallery = () => {
     }, []);
 
   return (
-    <div className='placeholder__div'>
+    <section className='image__container'>
    {mainPage?.map((element) => {
         return <Artworks
         key={element.id}
@@ -34,7 +33,7 @@ const MainGallery = () => {
         place_of_origin = {element.place_of_origin}
         image_id = {element.image_id} />
 })}
-    </div>
+    </section>
   )
 }
 
