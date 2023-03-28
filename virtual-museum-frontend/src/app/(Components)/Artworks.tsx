@@ -2,7 +2,7 @@ import React, { ForwardRefExoticComponent, Ref, useEffect, useRef, useState } fr
 import { ArtworkProps } from '../(Props)/props'
 import Image from "next/image";
 import Popup from 'reactjs-popup';
-import { ImageList, ImageListItem} from '@mui/material';
+
 
 
 const Artworks = ({image_id, title, artist_display, place_of_origin, thumbnail}: ArtworkProps) => {

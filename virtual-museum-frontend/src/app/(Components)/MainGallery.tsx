@@ -6,7 +6,7 @@ import Artworks from './Artworks';
 const MainGallery = () => {
 
     const [mainPage, setMainPage] = useState<Data[]>();
-    const matches = useMediaQuery('(min-width: 37.5rem)');
+    //const matches = useMediaQuery('(min-width: 600px)');
 
 
     const getRandomPage = async() => {
@@ -28,7 +28,7 @@ const MainGallery = () => {
   return (
     <ImageList
     className='gallery__imagelist' 
-    cols={matches? 4 :  1} 
+    cols={4} 
     rowHeight={164}>
       {mainPage?.map((element) => {
         return <Artworks
