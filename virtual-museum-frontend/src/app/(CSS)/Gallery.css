@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #383434;
+}
+
+.global__header{
+    border: 0.2rem solid black;
+    height: 4.5rem;
+    text-align: center;
+    background-color: bisque;
+}
+
+.image__artwork{
+    margin: 1rem;
+    border-radius: 0.8rem;
+}
+
+.image__card{
+    text-align: center;
+}
+
+.image__artwork:hover{
+    box-shadow: 0.05rem 0.05rem 0.5rem 0.5rem #808080;
+    cursor: pointer;
+}
+
+.largeImage__container{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(1.1rem);
+    overflow: hidden;
+    z-index: 7;
+}
+
+.largeImage__artwork{
+    margin-top: 1rem;
+}
