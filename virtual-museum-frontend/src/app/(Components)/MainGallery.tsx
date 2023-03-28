@@ -23,8 +23,9 @@ const MainGallery = () => {
     }, []);
 
   return (
-    <section className='image__container'>
-   {mainPage?.map((element) => {
+    <section className='artwork__gallery'>
+
+      {mainPage?.map((element) => {
         return <Artworks
         key={element.id}
         thumbnail={element.thumbnail}
@@ -33,6 +34,7 @@ const MainGallery = () => {
         place_of_origin = {element.place_of_origin}
         image_id = {element.image_id} />
 })}
+
     </section>
   )
 }
