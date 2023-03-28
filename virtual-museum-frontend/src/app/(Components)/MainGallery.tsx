@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import  {Data} from '../(Interfaces)/interfaces'
 import Artworks from './Artworks';
 
+
 const MainGallery = () => {
 
     const [mainPage, setMainPage] = useState<Data[]>();
