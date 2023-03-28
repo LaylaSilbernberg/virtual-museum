@@ -1,3 +1,4 @@
+import { ImageList, ImageListItem, useMediaQuery} from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import  {Data} from '../(Interfaces)/interfaces'
 import Artworks from './Artworks';
@@ -5,6 +6,8 @@ import Artworks from './Artworks';
 const MainGallery = () => {
 
     const [mainPage, setMainPage] = useState<Data[]>();
+    const matches = useMediaQuery('(min-width: 37.5rem)');
+
 
     const getRandomPage = async() => {
         const totalPages = 9964;
@@ -23,8 +26,10 @@ const MainGallery = () => {
     }, []);
 
   return (
-    <section className='artwork__gallery'>
-
+    <ImageList
+    className='gallery__imagelist' 
+    cols={matches? 4 :  1} 
+    rowHeight={164}>
       {mainPage?.map((element) => {
         return <Artworks
         key={element.id}
@@ -33,9 +38,9 @@ const MainGallery = () => {
         title = {element.title}
         place_of_origin = {element.place_of_origin}
         image_id = {element.image_id} />
-})}
+})};
+</ImageList>
 
-    </section>
   )
 }
 
