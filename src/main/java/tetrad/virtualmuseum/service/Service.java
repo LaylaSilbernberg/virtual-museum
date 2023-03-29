@@ -3,27 +3,27 @@ package tetrad.virtualmuseum.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 
 import tetrad.virtualmuseum.repository.GalleryRepo;
 import tetrad.virtualmuseum.DAO.Gallery;
-@Service
+@org.springframework.stereotype.Service
 public class Service {
-    private GalleryRepo repo;
+    private final GalleryRepo repo;
 
     public Service(@Autowired GalleryRepo repo){
         this.repo=repo;
     }
 
     public Gallery getGalleryById(String id){
-        return repo.getGalleryById(id); }
+        return repo.findGalleryById(Integer.parseInt(id)); }
 
     public void saveGallery(Gallery gallery){
-    repo.saveGallery(gallery);
+    repo.save(gallery);
     }
 
     public int createGallery(){
-        return repo.createGallery();
+        return repo.save(new Gallery()).getId();
     }
 
     public List<Gallery> getGalleries() {
