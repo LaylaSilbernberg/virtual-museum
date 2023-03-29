@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useState } from 'react'
 import MainGallery from '../../(Components)/MainGallery';
 import { Data } from '../../(Interfaces)/interfaces';
