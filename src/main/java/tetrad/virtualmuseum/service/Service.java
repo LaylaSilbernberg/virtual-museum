@@ -4,13 +4,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tetrad.virtualmuseum.repository.GalleryRepository;
+
+import tetrad.virtualmuseum.repository.GalleryRepo;
 import tetrad.virtualmuseum.DAO.Gallery;
 @Service
-public class service {
-    private GalleryRepository repo;
+public class Service {
+    private GalleryRepo repo;
 
-    public service(@Autowired GalleryRepository repo){
+    public Service(@Autowired GalleryRepo repo){
         this.repo=repo;
     }
 
