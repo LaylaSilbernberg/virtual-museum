@@ -10,7 +10,7 @@ const NavBar = () => {
   return (
     <AppBar
     sx={{
-      backgroundColor: 'transparent',
+      background: 'linear-gradient(to bottom, #1D1D1D 10%, transparent 100%)',
       boxShadow: 'none'
     }}
     position='sticky'
@@ -22,7 +22,8 @@ const NavBar = () => {
             flexDirection: 'row',
             justifyContent: 'flex-start',
             alignContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            color: 'white'
           }}
       maxWidth='xl'
       className='link__container'>
