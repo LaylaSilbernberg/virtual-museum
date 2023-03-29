@@ -24,29 +24,36 @@ const MainGallery = () => {
     }, []);
 
   return (
-
-    <Box
-      className='gallery__box'
-      sx={{
-        display: "grid",
-        gridTemplateColumns: {
-          xs: "repeat(1, 1fr)",
-          sm: "repeat(2, 1fr)",
-          md: "repeat(3, 1fr)",
-          lg: "repeat(4, 1fr)"
-        }
-      }}
-    >
-      {mainPage?.map((element) => {
-        return <Artworks
-          key={element.id}
-          thumbnail={element.thumbnail}
-          artist_display={element.artist_display}
-          title={element.title}
-          place_of_origin={element.place_of_origin}
-          image_id={element.image_id} />;
-      })}
-    </Box>
+    <><video
+      className='background__video'
+      autoPlay
+      loop
+      muted>
+      <source src='/backgroundmuseum.mp4' />
+    </video><main className="homepage__main">
+        <Box
+          className='gallery__box'
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "repeat(1, 1fr)",
+              sm: "repeat(2, 1fr)",
+              md: "repeat(3, 1fr)",
+              lg: "repeat(4, 1fr)"
+            }
+          }}
+        >
+          {mainPage?.map((element) => {
+            return <Artworks
+              key={element.id}
+              thumbnail={element.thumbnail}
+              artist_display={element.artist_display}
+              title={element.title}
+              place_of_origin={element.place_of_origin}
+              image_id={element.image_id} />;
+          })}
+        </Box>
+      </main></>
   );
 }
 
