@@ -3,14 +3,13 @@ package tetrad.virtualmuseum.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import tetrad.virtualmuseum.repository.galleryRepo;
+import tetrad.virtualmuseum.repository.GalleryRepo;
 import tetrad.virtualmuseum.DAO.Gallery;
-@Service
-public class service {
-    private galleryRepo repo;
+@org.springframework.stereotype.Service
+public class Service {
+    private GalleryRepo repo;
 
-    public service(@Autowired galleryRepo repo){
+    public Service(@Autowired GalleryRepo repo){
         this.repo=repo;
     }
 

@@ -4,7 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import tetrad.virtualmuseum.service.service;
+import tetrad.virtualmuseum.service.Service;
 import tetrad.virtualmuseum.DAO.Gallery;
 
 import java.net.URI;
@@ -12,11 +12,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class controller {
+public class Controller {
 
-    private final service service;
+    private final Service service;
 
-    public controller(@Autowired service service) {
+    public Controller(@Autowired Service service) {
         this.service = service;
     }
 
