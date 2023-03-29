@@ -30,7 +30,7 @@ const NavBar = () => {
         <Image src={'https://upload.wikimedia.org/wikipedia/commons/3/32/Art_Institute_of_Chicago_logo.svg'} width={72} height={72} alt='Art Institute of Chicago logo'/>
         <Link href={"/"} className="nav__links">Home</Link>
         <Link href={"/about"} className="nav__links">About</Link>
-        <Link href={"/personal_gallery"} className="nav__links">Personal Gallery</Link>
+        <Link href={`/personalgallery`} className="nav__links">Personal Gallery</Link>
         </Box>
     </AppBar>
   );

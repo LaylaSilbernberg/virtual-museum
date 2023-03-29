@@ -3,34 +3,13 @@ import React, { useEffect, useState } from 'react'
 import  {Data} from '../(Interfaces)/interfaces'
 import Artworks from './Artworks'
 import Video from 'next/image'
+import { GalleryProp } from '../(Props)/props';
 
-const MainGallery = () => {
+const MainGallery = ({pageData}: GalleryProp) => {
 
-    const [mainPage, setMainPage] = useState<Data[]>();
-    const getRandomPage = async() => {
-        const totalPages = 9964;
-        const limit = 8;
-        const fields = "id,title,place_of_origin,department_title,thumbnail,department_id,gallery_title,gallery_id,artist_display,image_id";
-        const url = `https://api.artic.edu/api/v1/artworks?fields=${fields}&limit=${limit}&page=${Math.floor(Math.random() * totalPages)}`;
-
-        const data = await fetch(url);
-        const result = await data.json();
-
-        setMainPage(result.data);
-    }
-
-    useEffect(() => { 
-       getRandomPage()
-    }, []);
 
   return (
-    <><video
-      className='background__video'
-      autoPlay
-      loop
-      muted>
-      <source src='/backgroundmuseum.mp4' />
-    </video><main className="homepage__main">
+<main className="homepage__main">
         <Box
           className='gallery__box'
           sx={{
@@ -43,7 +22,7 @@ const MainGallery = () => {
             }
           }}
         >
-          {mainPage?.map((element) => {
+          {pageData?.map((element) => {
             return <Artworks
               key={element.id}
               thumbnail={element.thumbnail}
@@ -53,7 +32,7 @@ const MainGallery = () => {
               image_id={element.image_id} />;
           })}
         </Box>
-      </main></>
+      </main>
   );
 }
 

@@ -1,5 +1,7 @@
 package tetrad.virtualmuseum.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tetrad.virtualmuseum.repository.galleryRepo;
@@ -24,6 +26,10 @@ public class service {
         Gallery gallery = new Gallery();
         repo.save(gallery);
         return gallery.getId();
+    }
+
+    public List<Gallery> getGalleries() {
+        return repo.findAll();
     }
 
 }

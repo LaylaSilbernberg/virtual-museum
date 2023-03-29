@@ -14,7 +14,7 @@ public class Gallery {
     @OneToMany(mappedBy = "gallery")
     private List<Image> image;
 
-    public Gallery() {
+    public Gallery() {  
     }
 
     public Gallery(int id, String galleryName, String description, List<Image> image) {
