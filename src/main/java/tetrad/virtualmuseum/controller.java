@@ -8,6 +8,7 @@ import tetrad.virtualmuseum.service.service;
 import tetrad.virtualmuseum.DAO.Gallery;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -30,6 +31,11 @@ public class controller {
     @GetMapping("/getGallery/{id}")
     public ResponseEntity<Gallery> getGallery(@PathVariable String id) {
         return ResponseEntity.ok().body(service.getGalleryById(id));
+    }
+
+    @GetMapping("/getGalleries")
+    public ResponseEntity<List<Gallery>> getGalleries () {
+        return ResponseEntity.ok().body(service.getGalleries());
     }
 
     @PatchMapping("/updateGallery")

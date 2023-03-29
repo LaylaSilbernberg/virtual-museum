@@ -16,19 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <video 
-    className='background__video' 
-    autoPlay 
-    loop 
-    muted > 
-    <source src='/backgroundmuseum.mp4' />
-    </video>
         <header className='global__header'>
           <NavBar />
         </header>
-        <main className="global__main">
         {children}
-        </main>
         </body>
     </html>
   )
