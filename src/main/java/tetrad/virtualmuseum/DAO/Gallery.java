@@ -1,8 +1,6 @@
 package tetrad.virtualmuseum.DAO;
 
 import jakarta.persistence.*;
-
-import java.util.Collection;
 import java.util.List;
 
 @Entity
