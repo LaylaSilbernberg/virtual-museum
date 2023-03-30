@@ -46,6 +46,7 @@ export default function Home() {
 
   return (
     <><video
+    id='background_video'
       className='background__video'
       autoPlay
       loop

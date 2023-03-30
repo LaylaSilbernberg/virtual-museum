@@ -1,16 +1,19 @@
 import React, {useState } from 'react'
-import { Box, Card, CardContent, Typography} from '@mui/material';
+import { Box, Button, Card, CardContent, IconButton, Typography} from '@mui/material';
 import { ArtworkProps } from '../(Props)/props'
 import Image from "next/image";
 import Popup from 'reactjs-popup';
+import { ThumbUp } from '@mui/icons-material';
 
 
 
 const Artworks = ({image_id, title, artist_display, place_of_origin, thumbnail}: ArtworkProps) => {
 
     const [openImage, setOpenImage] = useState<boolean>(false);
+    const video: HTMLVideoElement = document.querySelector(".background__video")!;
 
-    openImage ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";    
+    openImage ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
+    openImage ? video.pause() : video.play();
 
   return (
      <>
@@ -48,8 +51,23 @@ const Artworks = ({image_id, title, artist_display, place_of_origin, thumbnail}:
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
               {thumbnail ? thumbnail.alt_text : ""}
             </Typography>
+            <Box
+            sx={{
+              position: 'static',
+              marginTop: '-1.9rem',
+              marginBottom: '-1.4rem',
+              marginRight: '-0.8rem',
+              display: 'flex',
+              justifyContent: 'flex-end'
+            }}>
+          <IconButton
+           aria-label='like'>
+            <ThumbUp/>
+          </IconButton>
+        </Box>
           </CardContent>
         </Card>
+
       </Box>
     </Popup><div className="image__card">
         <Image
