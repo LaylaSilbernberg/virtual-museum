@@ -19,5 +19,5 @@ export interface Thumbnail {
 }
 
 export interface ImageDTO {
-    
+
 }
