@@ -7,7 +7,7 @@ import org.springframework.lang.Nullable;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ImageDTO(
 
-        @JsonProperty int personalGalleryId,
+        @JsonProperty("id") int personalGalleryId,
 
         @JsonProperty("title") String title,
         @JsonProperty("place_of_origin") String placeOfOrigin,
@@ -16,7 +16,7 @@ public record ImageDTO(
 
         @JsonProperty("department_id") String departmentId,
 
-        @Nullable @JsonProperty ThumbnailDTO thumbnailDTO,
+        @Nullable @JsonProperty("thumbnail") ThumbnailDTO thumbnailDTO,
 
         @Nullable @JsonProperty("gallery_title") String galleryTitle,
         @JsonProperty("artist_display") String artistDisplay,
