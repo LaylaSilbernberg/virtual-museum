@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api")
+@CrossOrigin
 public class Controller {
 
     private final Service service;
@@ -42,7 +43,9 @@ public class Controller {
 
     @PostMapping(path = "/updateGallery", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> updateGallery(@RequestBody ImageDTO dto) {
-        return ResponseEntity.ok(service.saveGallery(dto).getId() + " successfully updated");
+
+        Gallery gallery = service.saveGallery(dto);
+        return ResponseEntity.ok(gallery.getId() + " successfully updated");
     }
 
 

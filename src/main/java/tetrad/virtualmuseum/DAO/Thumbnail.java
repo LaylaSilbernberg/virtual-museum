@@ -19,10 +19,8 @@ public class Thumbnail {
 
     private String altText;
 
-    @OneToOne(orphanRemoval = true)
-    @JoinTable(name = "thumbnail_image",
-            joinColumns = @JoinColumn(name = "thumbnail_id"),
-            inverseJoinColumns = @JoinColumn(name = "image_id"))
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "thumbnail_id")
     private Image image;
 
     public Image getImage() {
@@ -32,6 +30,7 @@ public class Thumbnail {
     public void setImage(Image image) {
         this.image = image;
     }
+
 
     public Thumbnail(String lqip, int width, int height, String altText) {
         this.lqip = lqip;

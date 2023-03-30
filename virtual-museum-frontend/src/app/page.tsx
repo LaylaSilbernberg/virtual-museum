@@ -10,22 +10,6 @@ export default function Home() {
 
   const [mainPage, setMainPage] = useState<Data[]>();
 
-  const createGallery = async() => {
-    const url = `https://virtualmuseumappreal.azurewebsites.net/api/`
-
-    const data = await fetch(url + 'getGalleries')
-    let result;
-
-    data.status === 404 && await fetch(url + 'createEmptyGallery', {
-      method: 'POST',
-      headers: {
-
-      }
-    }).then((element) => result = element.json())
-
-    console.log(result)
-  }
-
 
   const getRandomPage = async() => {
       const totalPages = 9964;
@@ -40,7 +24,6 @@ export default function Home() {
   }
 
   useEffect(() => {
-    createGallery();
     getRandomPage();
   }, []);
 
