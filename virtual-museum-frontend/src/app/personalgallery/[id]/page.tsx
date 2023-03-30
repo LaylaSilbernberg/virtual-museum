@@ -23,9 +23,7 @@ useEffect(() => {
 
     
     
-  return <div>
-    page
-  </div>;
+  return <MainGallery pageData={page}/>
   
 }
 

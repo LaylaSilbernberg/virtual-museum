@@ -7,8 +7,8 @@ import java.util.List;
 @Table(name = "tblGallery")
 public class Gallery {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String galleryName;
     private String description;
     @OneToMany(mappedBy = "gallery")
@@ -17,18 +17,18 @@ public class Gallery {
     public Gallery() {  
     }
 
-    public Gallery(int id, String galleryName, String description, List<Image> image) {
+    public Gallery(Long id, String galleryName, String description, List<Image> image) {
         this.id = id;
         this.galleryName = galleryName;
         this.description = description;
         this.image = image;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

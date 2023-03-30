@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+import tetrad.virtualmuseum.DAO.Image;
+import tetrad.virtualmuseum.DAO.Thumbnail;
+import tetrad.virtualmuseum.DTO.ImageDTO;
 import tetrad.virtualmuseum.repository.GalleryRepo;
 import tetrad.virtualmuseum.DAO.Gallery;
 @org.springframework.stereotype.Service
@@ -18,11 +21,17 @@ public class Service {
     public Gallery getGalleryById(String id){
         return repo.findGalleryById(Integer.parseInt(id)); }
 
-    public void saveGallery(Gallery gallery){
-    repo.save(gallery);
+    public Gallery saveGallery(ImageDTO dto){
+        Gallery gallery = repo.findGalleryById(dto.personalGalleryId());
+
+        Thumbnail thumbnail = new Thumbnail(dto.thumbnailDTO().lqip(), dto.thumbnailDTO().width(), dto.thumbnailDTO().height(), dto.thumbnailDTO().altText());
+
+        gallery.getImage().add(new Image(dto.imageId(), dto.title(), dto.placeOfOrigin(), dto.artistDisplay(), gallery, thumbnail));
+
+       return repo.save(gallery);
     }
 
-    public int createGallery(){
+    public Long createGallery(){
         return repo.save(new Gallery()).getId();
     }
 

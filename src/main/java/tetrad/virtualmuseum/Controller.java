@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tetrad.virtualmuseum.service.Service;
 import tetrad.virtualmuseum.DAO.Gallery;
+import tetrad.virtualmuseum.DTO.ImageDTO;
 
 import java.net.URI;
 import java.util.List;
@@ -39,9 +40,8 @@ public class Controller {
     }
 
     @PatchMapping("/updateGallery")
-    public ResponseEntity<?> updateGallery(@RequestBody Gallery gallery) {
-        service.saveGallery(gallery);
-        return ResponseEntity.ok(gallery.getId() + " successfully updated");
+    public ResponseEntity<String> updateGallery(@RequestBody ImageDTO dto) {
+        return ResponseEntity.ok(service.saveGallery(dto).getId() + " successfully updated");
     }
 
 
