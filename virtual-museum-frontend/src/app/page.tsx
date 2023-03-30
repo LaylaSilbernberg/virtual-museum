@@ -13,7 +13,7 @@ export default function Home() {
   const createGallery = async() => {
     const url = `http://virtualmuseumappreal.azurewebsites.net/api/`
 
-    const data = await fetch(url + '/getGalleries')
+    const data = await fetch(url + 'getGalleries')
     let result;
 
     data.status === 404 && await fetch(url + 'createEmptyGallery', {
