@@ -12,7 +12,7 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
 
     const [openImage, setOpenImage] = useState<boolean>(false);
     const video: HTMLVideoElement = document.querySelector(".background__video")!;
-    const url = `http://virtualmuseumappreal.azurewebsites.net/api/updateGallery`
+    const url = `https://virtualmuseumappreal.azurewebsites.net/api/updateGallery`
     const requestBody: ArtworkProps = {
       id,
       title,

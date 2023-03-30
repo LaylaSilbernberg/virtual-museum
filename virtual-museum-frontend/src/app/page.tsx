@@ -11,7 +11,7 @@ export default function Home() {
   const [mainPage, setMainPage] = useState<Data[]>();
 
   const createGallery = async() => {
-    const url = `http://virtualmuseumappreal.azurewebsites.net/api/`
+    const url = `https://virtualmuseumappreal.azurewebsites.net/api/`
 
     const data = await fetch(url + 'getGalleries')
     let result;
