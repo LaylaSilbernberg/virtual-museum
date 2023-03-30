@@ -30,7 +30,6 @@ public class Image {
 //    private Gallery gallery;
 
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "image")
-    @Nullable
     private Thumbnail thumbnail;
 
     @JsonIgnore

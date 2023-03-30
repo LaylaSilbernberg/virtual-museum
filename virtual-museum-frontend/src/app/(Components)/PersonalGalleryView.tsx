@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react'
 import  {Data} from '../(Interfaces)/interfaces'
 import Artworks from './Artworks'
 import Video from 'next/image'
-import { GalleryProp } from '../(Props)/props';
+import { GalleryProp, PersonalGalleryProp } from '../(Props)/props';
+import PersonalArtworks from './PersonalArtworks';
 
-const MainGallery = ({pageData}: GalleryProp) => {
+const MainGallery = ({pageData}: PersonalGalleryProp) => {
   console.log(pageData);
   
   return (
@@ -23,18 +24,14 @@ const MainGallery = ({pageData}: GalleryProp) => {
           }}
         >
           {pageData?.map((element) => {
-            return <Artworks
+            return <PersonalArtworks
               key={element.id}
               id={52}
-              gallery_title={element.gallery_title}
-              gallery_id={element.gallery_id}
-              department_title={element.department_title}
-              department_id={element.department_id}
               thumbnail={element.thumbnail}
-              artist_display={element.artist_display}
+              artist_display={element.artistDisplay}
               title={element.title}
-              place_of_origin={element.place_of_origin}
-              image_id={element.image_id} />;
+              place_of_origin={element.placeOfOrigin}
+              image_id={element.imageID} />;
           })}
         </Box>
       </main>

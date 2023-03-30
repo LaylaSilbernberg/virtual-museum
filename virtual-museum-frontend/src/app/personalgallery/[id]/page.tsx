@@ -1,21 +1,22 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import MainGallery from '../../(Components)/MainGallery';
-import { Data } from '../../(Interfaces)/interfaces';
+import PersonalGalleryView from '../../(Components)/PersonalGalleryView';
+import { Image } from '../../(Interfaces)/interfaces';
 
 const PersonalGallery = ({params} : {params: {id: string}}) => {
 //http://virtualmuseumappreal.azurewebsites.net/
 
-const [page, setPage] = useState<Data[]>();
+const [page, setPage] = useState<Image[]>();
 const getPage = async() => {
     //const url = `https://virtualmuseumappreal.azurewebsites.net/api/getGallery/${params.id}`;
-    const url = `http://localhost:8080/api/getGalley/${params.id}`;
+    const url = `http://localhost:8080/api/getGallery/${params.id}`;
 
     const data = await fetch(url);
     const result = await data.json();
+    console.log(result)
 
-    setPage(result.data);
+    setPage(result.images);
 }
 
 useEffect(() => { 
@@ -23,8 +24,8 @@ useEffect(() => {
 }, []);
 
     
-    
-  return <MainGallery pageData={page}/>
+  return (
+ <PersonalGalleryView pageData={page} />)
   
 }
 

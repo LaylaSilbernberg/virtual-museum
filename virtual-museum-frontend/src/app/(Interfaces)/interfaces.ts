@@ -17,3 +17,17 @@ export interface Thumbnail {
     height:   number;
     alt_text?: string | null;
 }
+
+export interface PersonalGallery {
+    id:     number;
+    images: Image[];
+}
+
+export interface Image {
+    id:            number;
+    imageID:       string;
+    title:         string;
+    placeOfOrigin: string;
+    artistDisplay: string;
+    thumbnail:     Thumbnail | null;
+}

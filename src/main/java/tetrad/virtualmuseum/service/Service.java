@@ -28,9 +28,9 @@ public class Service {
         System.out.println(dto.personalGalleryId());
         Gallery gallery = repo.findGalleryById(dto.personalGalleryId());
 
-        //Thumbnail thumbnail = new Thumbnail(dto.thumbnailDTO().lqip(), dto.thumbnailDTO().width(), dto.thumbnailDTO().height(), dto.thumbnailDTO().altText());
+        Thumbnail thumbnail = new Thumbnail(dto.thumbnailDTO().width(), dto.thumbnailDTO().height(), dto.thumbnailDTO().altText());
 
-        Image image = new Image(dto.imageId(), dto.title(), dto.placeOfOrigin(), dto.artistDisplay(), gallery, null);
+        Image image = new Image(dto.imageId(), dto.title(), dto.placeOfOrigin(), dto.artistDisplay(), gallery, thumbnail);
 
         List<Image> list = gallery.getImages();
         list.add(image);
