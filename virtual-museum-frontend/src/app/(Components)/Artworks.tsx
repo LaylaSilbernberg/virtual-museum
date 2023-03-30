@@ -33,6 +33,9 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
     const saveImage = async() => {
       await fetch(url, {
         method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
         body: JSON.stringify(requestBody)
       });
     }
