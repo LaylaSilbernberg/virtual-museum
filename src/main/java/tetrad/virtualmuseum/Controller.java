@@ -39,7 +39,7 @@ public class Controller {
         return ResponseEntity.ok().body(service.getGalleries());
     }
 
-    @PatchMapping("/updateGallery")
+    @PostMapping("/updateGallery")
     public ResponseEntity<String> updateGallery(@RequestBody ImageDTO dto) {
         return ResponseEntity.ok(service.saveGallery(dto).getId() + " successfully updated");
     }

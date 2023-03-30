@@ -4,16 +4,37 @@ import { ArtworkProps } from '../(Props)/props'
 import Image from "next/image";
 import Popup from 'reactjs-popup';
 import { ThumbUp } from '@mui/icons-material';
+import { Data } from '../(Interfaces)/interfaces';
 
 
 
-const Artworks = ({image_id, title, artist_display, place_of_origin, thumbnail}: ArtworkProps) => {
+const Artworks = ({image_id, title, artist_display, place_of_origin, thumbnail, gallery_title, gallery_id, department_title, department_id}: ArtworkProps) => {
 
     const [openImage, setOpenImage] = useState<boolean>(false);
     const video: HTMLVideoElement = document.querySelector(".background__video")!;
+    const url = `http://virtualmuseumappreal.azurewebsites.net/api/`
+    const requestBody: ArtworkProps = {
+      title,
+      artist_display,
+      place_of_origin,
+      thumbnail,
+      gallery_title,
+      gallery_id,
+      department_title,
+      department_id,
+      image_id
+    }
 
     openImage ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
     openImage ? video.pause() : video.play();
+
+
+    const saveImage = async() => {
+      await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(requestBody)
+      });
+    }
 
   return (
      <>
@@ -61,7 +82,8 @@ const Artworks = ({image_id, title, artist_display, place_of_origin, thumbnail}:
               justifyContent: 'flex-end'
             }}>
           <IconButton
-           aria-label='like'>
+           aria-label='like'
+           onClick={saveImage}>
             <ThumbUp/>
           </IconButton>
         </Box>

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ImageDTO(
-        @JsonProperty("id") int id,
 
         @JsonProperty int personalGalleryId,
 

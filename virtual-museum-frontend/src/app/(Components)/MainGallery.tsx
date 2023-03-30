@@ -25,6 +25,10 @@ const MainGallery = ({pageData}: GalleryProp) => {
           {pageData?.map((element) => {
             return <Artworks
               key={element.id}
+              gallery_title={element.gallery_title}
+              gallery_id={element.gallery_id}
+              department_title={element.department_title}
+              department_id={element.department_id}
               thumbnail={element.thumbnail}
               artist_display={element.artist_display}
               title={element.title}
