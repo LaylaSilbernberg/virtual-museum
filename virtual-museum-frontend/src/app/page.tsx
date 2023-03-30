@@ -16,7 +16,7 @@ export default function Home() {
     const data = await fetch(url + '/getGalleries')
     let result;
 
-    data.status === 404 && await fetch(url + '/createEmptyGallery', {
+    data.status === 404 && await fetch(url + 'createEmptyGallery', {
       method: 'POST',
       headers: {
 
