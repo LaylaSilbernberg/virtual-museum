@@ -18,8 +18,8 @@ public class Service {
         this.repo=repo;
     }
 
-    public Gallery getGalleryById(String id){
-        return repo.findGalleryById(Integer.parseInt(id)); }
+    public Gallery getGalleryById(Long id){
+        return repo.findGalleryById(id); }
 
     public Gallery saveGallery(ImageDTO dto){
         Gallery gallery = repo.findGalleryById(dto.personalGalleryId());
