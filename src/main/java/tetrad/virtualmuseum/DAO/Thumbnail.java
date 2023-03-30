@@ -4,7 +4,7 @@ package tetrad.virtualmuseum.DAO;
 import jakarta.persistence.*;
 
 @Entity
-@Table(schema = "tblThumbnail")
+@Table(name = "tblThumbnail")
 public class Thumbnail {
 
     @Id
