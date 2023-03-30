@@ -18,15 +18,20 @@ public class Image {
     private String artistDisplay;
 
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "id")
-    private Gallery gallery;
+//    @ManyToOne(optional = false)
+//    @JoinColumn(name = "id")
+//    private Gallery gallery;
 
     @OneToOne(orphanRemoval = true)
     @JoinTable(name = "tbl_image_thumbnail",
             joinColumns = @JoinColumn(name = "image_id"),
             inverseJoinColumns = @JoinColumn(name = "thumbnail_id"))
     private Thumbnail thumbnail;
+
+    @ManyToOne
+    @JoinColumn(name = "gallery_id")
+    private Gallery gallery;
+
 
     public Image() {
     }
