@@ -8,12 +8,13 @@ import { Data } from '../(Interfaces)/interfaces';
 
 
 
-const Artworks = ({image_id, title, artist_display, place_of_origin, thumbnail, gallery_title, gallery_id, department_title, department_id}: ArtworkProps) => {
+const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbnail, gallery_title, gallery_id, department_title, department_id}: ArtworkProps) => {
 
     const [openImage, setOpenImage] = useState<boolean>(false);
     const video: HTMLVideoElement = document.querySelector(".background__video")!;
     const url = `http://virtualmuseumappreal.azurewebsites.net/api/`
     const requestBody: ArtworkProps = {
+      id,
       title,
       artist_display,
       place_of_origin,
