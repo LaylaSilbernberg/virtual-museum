@@ -12,7 +12,6 @@ import tetrad.virtualmuseum.DTO.ImageDTO;
 import tetrad.virtualmuseum.repository.GalleryRepo;
 import tetrad.virtualmuseum.DAO.Gallery;
 @org.springframework.stereotype.Service
-@Transactional
 public class Service {
 
     private final GalleryRepo repo;
@@ -24,6 +23,7 @@ public class Service {
     public Gallery getGalleryById(Long id){
         return repo.findGalleryById(id); }
 
+    @Transactional
     public Gallery saveGallery(ImageDTO dto){
         System.out.println(dto.personalGalleryId());
         Gallery gallery = repo.findGalleryById(dto.personalGalleryId());

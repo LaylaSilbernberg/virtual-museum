@@ -13,7 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin
 public class Controller {
 
@@ -33,7 +33,7 @@ public class Controller {
 
     @GetMapping("/getGallery/{id}")
     public ResponseEntity<Gallery> getGallery(@PathVariable Long id) {
-        return ResponseEntity.ok().body(service.getGalleryById(id));
+        return ResponseEntity.ok(service.getGalleryById(id));
     }
 
     @GetMapping("/getGalleries")
