@@ -26,12 +26,12 @@ public class Controller {
     public ResponseEntity<Gallery> createEmptyGallery(HttpServletRequest req) {
         URI location = URI.create(req.getRequestURL() + "/" + service.createGallery());
         //Service.createGallery creates an empty gallery and returns its respective id
-        return ResponseEntity.created(location).body(service.getGalleryById(String.valueOf(service.createGallery())));
+        return ResponseEntity.created(location).body(service.getGalleryById(service.createGallery()));
 
     }
 
     @GetMapping("/getGallery/{id}")
-    public ResponseEntity<Gallery> getGallery(@PathVariable String id) {
+    public ResponseEntity<Gallery> getGallery(@PathVariable Long id) {
         return ResponseEntity.ok().body(service.getGalleryById(id));
     }
 
