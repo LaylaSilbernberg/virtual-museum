@@ -16,11 +16,11 @@ public record ImageDTO(
 
         @JsonProperty("department_id") String departmentId,
 
-        @JsonProperty ThumbnailDTO thumbnailDTO,
+        @Nullable @JsonProperty ThumbnailDTO thumbnailDTO,
 
         @Nullable @JsonProperty("gallery_title") String galleryTitle,
         @JsonProperty("artist_display") String artistDisplay,
-        @Nullable @JsonProperty("gallery_id") int galleryId,
+        @Nullable @JsonProperty("gallery_id") Integer galleryId,
         @JsonProperty("image_id") String imageId
 ) {
 

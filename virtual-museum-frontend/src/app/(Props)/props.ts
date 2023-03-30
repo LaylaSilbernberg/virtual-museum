@@ -3,7 +3,7 @@ import { Data, Thumbnail } from "../(Interfaces)/interfaces";
 export interface ArtworkProps {
     id?: number;
     title:            string;
-    thumbnail:        Thumbnail;
+    thumbnail:        Thumbnail | null;
     artist_display:   string;
     place_of_origin:  string;
     image_id:         string;
