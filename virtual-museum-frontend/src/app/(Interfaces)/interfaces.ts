@@ -17,7 +17,3 @@ export interface Thumbnail {
     height:   number;
     alt_text?: string | null;
 }
-
-export interface ImageDTO {
-
-}
