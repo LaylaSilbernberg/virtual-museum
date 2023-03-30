@@ -1,6 +1,7 @@
 package tetrad.virtualmuseum.DAO;
 
 import jakarta.persistence.*;
+import org.springframework.lang.Nullable;
 import tetrad.virtualmuseum.DTO.ThumbnailDTO;
 
 @Entity
@@ -22,13 +23,11 @@ public class Image {
 //    @JoinColumn(name = "id")
 //    private Gallery gallery;
 
-    @OneToOne(orphanRemoval = true)
-    @JoinTable(name = "tbl_image_thumbnail",
-            joinColumns = @JoinColumn(name = "image_id"),
-            inverseJoinColumns = @JoinColumn(name = "thumbnail_id"))
+    @OneToOne(mappedBy = "image")
+    @Nullable
     private Thumbnail thumbnail;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "gallery_id")
     private Gallery gallery;
 

@@ -9,19 +9,17 @@ public class Gallery {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String galleryName;
-    private String description;
+   // private String galleryName;
+   // private String description;
     @OneToMany(mappedBy = "gallery")
-    private List<Image> image;
+    private List<Image> images;
 
     public Gallery() {  
     }
 
-    public Gallery(Long id, String galleryName, String description, List<Image> image) {
+    public Gallery(Long id, List<Image> images) {
         this.id = id;
-        this.galleryName = galleryName;
-        this.description = description;
-        this.image = image;
+        this.images = images;
     }
 
     public Long getId() {
@@ -32,27 +30,11 @@ public class Gallery {
         this.id = id;
     }
 
-    public String getGalleryName() {
-        return galleryName;
+    public List<Image> getImages() {
+        return images;
     }
 
-    public void setGalleryName(String galleryName) {
-        this.galleryName = galleryName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public List<Image> getImage() {
-        return image;
-    }
-
-    public void setImage(List<Image> image) {
-        this.image = image;
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 }

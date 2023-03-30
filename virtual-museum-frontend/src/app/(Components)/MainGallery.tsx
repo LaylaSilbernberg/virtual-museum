@@ -7,6 +7,8 @@ import { GalleryProp } from '../(Props)/props';
 
 const MainGallery = ({pageData}: GalleryProp) => {
 
+  
+
 
   return (
 <main className="homepage__main">
@@ -25,7 +27,7 @@ const MainGallery = ({pageData}: GalleryProp) => {
           {pageData?.map((element) => {
             return <Artworks
               key={element.id}
-              id={element.id}
+              id={52}
               gallery_title={element.gallery_title}
               gallery_id={element.gallery_id}
               department_title={element.department_title}

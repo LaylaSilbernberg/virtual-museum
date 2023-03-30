@@ -3,7 +3,7 @@ export interface Data {
     title:            string;
     artist_display:   string;
     place_of_origin:  string;
-    thumbnail:        Thumbnail;
+    thumbnail:        Thumbnail | null;
     gallery_title:    null | string;
     gallery_id:       number | null;
     department_title: string;
