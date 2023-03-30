@@ -13,7 +13,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping(path = "/api")
 public class Controller {
 
     private final Service service;

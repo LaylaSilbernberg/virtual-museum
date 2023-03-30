@@ -2,6 +2,7 @@ package tetrad.virtualmuseum.DTO;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.lang.Nullable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record ImageDTO(
@@ -17,9 +18,9 @@ public record ImageDTO(
 
         @JsonProperty ThumbnailDTO thumbnailDTO,
 
-        @JsonProperty("gallery_title") String galleryTitle,
+        @Nullable @JsonProperty("gallery_title") String galleryTitle,
         @JsonProperty("artist_display") String artistDisplay,
-        @JsonProperty("gallery_id") int galleryId,
+        @Nullable @JsonProperty("gallery_id") int galleryId,
         @JsonProperty("image_id") String imageId
 ) {
 
