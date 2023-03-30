@@ -1,6 +1,7 @@
 package tetrad.virtualmuseum.DAO;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -9,17 +10,22 @@ public class Thumbnail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "lqip")
     private String lqip;
 
+    @Column(name = "width")
     private int width;
-
+    @Column(name = "height")
     private int height;
 
+    @Column(name = "alt_text")
     private String altText;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToOne()
     @JoinColumn(name = "thumbnail_id")
     private Image image;
 

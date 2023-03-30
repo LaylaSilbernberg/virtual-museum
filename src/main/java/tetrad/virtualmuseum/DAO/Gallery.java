@@ -8,10 +8,10 @@ import java.util.List;
 public class Gallery {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
-   // private String galleryName;
-   // private String description;
-    @OneToMany(mappedBy = "gallery")
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "gallery")
     private List<Image> images;
 
     public Gallery() {  

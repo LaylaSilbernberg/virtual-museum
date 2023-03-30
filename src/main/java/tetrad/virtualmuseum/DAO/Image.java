@@ -1,5 +1,6 @@
 package tetrad.virtualmuseum.DAO;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.lang.Nullable;
 import tetrad.virtualmuseum.DTO.ThumbnailDTO;
@@ -12,10 +13,15 @@ public class Image {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(name = "imageid")
     private String imageID;
 
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "place_of_origin")
     private String placeOfOrigin;
+    @Column(name = "artist_display")
     private String artistDisplay;
 
 
@@ -23,11 +29,12 @@ public class Image {
 //    @JoinColumn(name = "id")
 //    private Gallery gallery;
 
-    @OneToOne(mappedBy = "image")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "image")
     @Nullable
     private Thumbnail thumbnail;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ManyToOne()
     @JoinColumn(name = "gallery_id")
     private Gallery gallery;
 
