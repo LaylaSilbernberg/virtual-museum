@@ -2,6 +2,7 @@ package tetrad.virtualmuseum;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tetrad.virtualmuseum.service.Service;
@@ -39,7 +40,7 @@ public class Controller {
         return ResponseEntity.ok().body(service.getGalleries());
     }
 
-    @PostMapping("/updateGallery")
+    @PostMapping(path = "/updateGallery", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> updateGallery(@RequestBody ImageDTO dto) {
         return ResponseEntity.ok(service.saveGallery(dto).getId() + " successfully updated");
     }
