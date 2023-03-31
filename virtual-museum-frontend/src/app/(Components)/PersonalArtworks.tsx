@@ -4,21 +4,31 @@ import {PersonalArtworkProp} from '../(Props)/props'
 import Image from "next/image";
 import Popup from 'reactjs-popup';
 import { Delete } from '@mui/icons-material';
+import { useRouter } from 'next/navigation';
 
 
 
-const PersonalArtworks = ({id, image_id, title, place_of_origin, artist_display, thumbnail}: PersonalArtworkProp) => {
+
+const PersonalArtworks = ({id, paramId, image_id, title, place_of_origin, artist_display, thumbnail}: PersonalArtworkProp) => {
 
     const [openImage, setOpenImage] = useState<boolean>(false);
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('sm'));
-
+    const video: HTMLVideoElement = document.querySelector(".background__video")!;
+    const url = `http://localhost:8080/api/deleteImage/${paramId}?imageId=${id}`
 
     openImage ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
-    //openImage ? video.pause() : video.play();
+    openImage ? video.pause() : video.play();
+
+
 
 const deleteImage = async() =>{
-    return null;
+  await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Access-Control-Allow-Origin' : '*'
+    }
+  });
 }
 
   return (

@@ -22,7 +22,8 @@ export interface PersonalGalleryProp{
 }
 
 export interface PersonalArtworkProp{
-    id?: number;
+    id: number;
+    paramId: string;
     image_id: string;
     title: string;
     place_of_origin: string;

@@ -31,7 +31,7 @@ useEffect(() => {
       loop
       muted>
       <source src='/personalgalleryclip.mp4' />
-    </video><PersonalGalleryView pageData={page} /></>)
+    </video><PersonalGalleryView paramID={params.id} images={page} /></>)
   
 }
 
