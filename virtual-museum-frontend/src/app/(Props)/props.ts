@@ -1,3 +1,4 @@
+import PopupComponent from "../(Components)/PopupComponent";
 import { Data, Thumbnail, Image, ThumbnailDTO } from "../(Interfaces)/interfaces";
 
 export interface ArtworkProps {
@@ -29,4 +30,17 @@ export interface PersonalArtworkProp{
     place_of_origin: string;
     artist_display: string;
     thumbnail: ThumbnailDTO | null;
+}
+
+export interface PopupComponentProps{
+    saveImage?: () => void;
+    deleteImage?: () => void;
+    openImage: boolean;
+    setOpenImage: (openImage: boolean) => void;
+    image_id: string;
+    thumbnail?: Thumbnail | null;
+    thumbnailDto?: ThumbnailDTO | null;
+    title: string;
+    artist_display: string;
+    place_of_origin: string;
 }

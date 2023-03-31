@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import PersonalGalleryView from '../../(Components)/PersonalGalleryView';
 import { Image } from '../../(Interfaces)/interfaces';
 
+
 const PersonalGallery = ({params} : {params: {id: string}}) => {
 //http://virtualmuseumappreal.azurewebsites.net/
 
@@ -12,7 +13,7 @@ const getPage = async() => {
     //const url = `https://virtualmuseumappreal.azurewebsites.net/api/getGallery/${params.id}`;
     const url = `http://localhost:8080/api/getGallery/${params.id}`;
 
-    const data = await fetch(url);
+    const data = await fetch(url, {next: {revalidate: 10}});
     const result = await data.json();
 
     setPage(result.images);
