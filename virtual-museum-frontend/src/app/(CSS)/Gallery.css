@@ -68,3 +68,10 @@ body{
 .global__header{
     padding-top:0;
 }
+
+@media (min-width:641px) {
+    .largeImage__artwork{
+        width: 500;
+        height: 500;
+    }
+}

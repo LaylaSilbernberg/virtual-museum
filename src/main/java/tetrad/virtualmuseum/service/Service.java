@@ -11,13 +11,18 @@ import tetrad.virtualmuseum.DAO.Thumbnail;
 import tetrad.virtualmuseum.DTO.ImageDTO;
 import tetrad.virtualmuseum.repository.GalleryRepo;
 import tetrad.virtualmuseum.DAO.Gallery;
+import tetrad.virtualmuseum.repository.ImageRepo;
+
 @org.springframework.stereotype.Service
 public class Service {
 
     private final GalleryRepo repo;
 
-    public Service(@Autowired GalleryRepo repo){
-        this.repo=repo;
+    private final ImageRepo imageRepo;
+
+    public Service(@Autowired GalleryRepo repo, @Autowired ImageRepo imageRepo) {
+        this.repo = repo;
+        this.imageRepo = imageRepo;
     }
 
     public Gallery getGalleryById(Long id){
@@ -25,27 +30,15 @@ public class Service {
 
     @Transactional
     public Gallery saveGallery(ImageDTO dto){
-        System.out.println(dto.personalGalleryId());
         Gallery gallery = repo.findGalleryById(dto.personalGalleryId());
 
-        //Thumbnail thumbnail = new Thumbnail(dto.thumbnailDTO().lqip(), dto.thumbnailDTO().width(), dto.thumbnailDTO().height(), dto.thumbnailDTO().altText());
+        Thumbnail thumbnail = new Thumbnail(dto.thumbnailDTO().width(), dto.thumbnailDTO().height(), dto.thumbnailDTO().altText());
 
-        Image image = new Image(dto.imageId(), dto.title(), dto.placeOfOrigin(), dto.artistDisplay(), gallery, null);
+        Image image = new Image(dto.imageId(), dto.title(), dto.placeOfOrigin(), dto.artistDisplay(), gallery, thumbnail);
 
-        List<Image> list = gallery.getImages();
-        list.add(image);
+        thumbnail.setImage(image);
 
-        gallery.setImages(list);
-
-        System.out.println(gallery.getImages().get(0).getTitle());
-
-        repo.save(gallery);
-
-        System.out.println("2nd: ");
-
-        Gallery gallery2 = repo.findGalleryById(dto.personalGalleryId());
-
-        System.out.println(gallery2.getImages().get(0).getTitle());
+        gallery.getImages().add(image);
 
        return repo.save(gallery);
     }
@@ -58,4 +51,7 @@ public class Service {
         return repo.findAll();
     }
 
+    public void deleteImageFromGallery(Long id, Long imageId) {
+        imageRepo.deleteById(imageId);
+    }
 }

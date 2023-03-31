@@ -12,8 +12,30 @@ export interface Data {
 }
 
 export interface Thumbnail {
-    lqip:     string;
+    id:       number | null;
+    lqip:     string | null;
     width:    number;
     height:   number;
     alt_text?: string | null;
+}
+
+export interface ThumbnailDTO {
+    id:      number;
+    width:   number;
+    height:  number;
+    altText: string;
+}
+
+export interface PersonalGallery {
+    id:     number;
+    images: Image[];
+}
+
+export interface Image {
+    id:            number;
+    imageID:       string;
+    title:         string;
+    placeOfOrigin: string;
+    artistDisplay: string;
+    thumbnail:     ThumbnailDTO | null;
 }

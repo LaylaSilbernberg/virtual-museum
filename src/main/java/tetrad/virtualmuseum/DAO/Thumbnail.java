@@ -13,9 +13,6 @@ public class Thumbnail {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "lqip")
-    private String lqip;
-
     @Column(name = "width")
     private int width;
     @Column(name = "height")
@@ -24,9 +21,9 @@ public class Thumbnail {
     @Column(name = "alt_text")
     private String altText;
 
+    @OneToOne(cascade = CascadeType.ALL)
     @JsonIgnore
-    @OneToOne()
-    @JoinColumn(name = "thumbnail_id")
+    @JoinColumn(name = "thumbnail_id", referencedColumnName = "id")
     private Image image;
 
     public Image getImage() {
@@ -38,12 +35,13 @@ public class Thumbnail {
     }
 
 
-    public Thumbnail(String lqip, int width, int height, String altText) {
-        this.lqip = lqip;
+    public Thumbnail(int width, int height, String altText) {
         this.width = width;
         this.height = height;
         this.altText = altText;
     }
+
+
 
     public Thumbnail() {
     }
@@ -80,11 +78,4 @@ public class Thumbnail {
         this.altText = altText;
     }
 
-    public String getLqip() {
-        return lqip;
-    }
-
-    public void setLqip(String lqip) {
-        this.lqip = lqip;
-    }
 }

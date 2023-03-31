@@ -48,5 +48,12 @@ public class Controller {
         return ResponseEntity.ok(gallery.getId() + " successfully updated");
     }
 
+    @DeleteMapping(path = "/deleteImage/{id}")
+    public ResponseEntity<Void> deleteImageFromGallery(@PathVariable Long id, @RequestParam Long imageId){
+
+        service.deleteImageFromGallery(id, imageId);
+        return ResponseEntity.noContent().build();
+    }
+
 
 }

@@ -1,9 +1,9 @@
 import React, {useState } from 'react'
-import { Box, Button, Card, CardContent, IconButton, Typography} from '@mui/material';
+import { Box, Button, Card, CardContent, IconButton, Typography, useMediaQuery, useTheme} from '@mui/material';
 import { ArtworkProps } from '../(Props)/props'
 import Image from "next/image";
 import Popup from 'reactjs-popup';
-import { ThumbUp } from '@mui/icons-material';
+import { FavoriteBorder, ThumbUp } from '@mui/icons-material';
 import { Data } from '../(Interfaces)/interfaces';
 
 
@@ -12,6 +12,8 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
 
     const [openImage, setOpenImage] = useState<boolean>(false);
     const video: HTMLVideoElement = document.querySelector(".background__video")!;
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('sm'));
     //const url = `https://virtualmuseumappreal.azurewebsites.net/api/updateGallery`
     const url = `http://localhost:8080/api/updateGallery`
     const requestBody: ArtworkProps = {
@@ -56,13 +58,20 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
           className='largeImage__artwork'
           src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`}
           alt={thumbnail ? `${thumbnail.alt_text}` : ""}
-          width={500}
-          height={500}
+          width={300}
+          height={300}
+          style={matches ? {
+            width: 500,
+            height: 500
+          }: undefined}
           onClick={() => setOpenImage(false)}
-          priority />
+          priority 
+          />
         <Card
           className='largeImage__textCard'
-          sx={{ maxWidth: 500 }}
+          sx={{ width: {
+            xs: 300,
+            sm: 500}}}
         >
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -79,17 +88,17 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
             </Typography>
             <Box
             sx={{
-              position: 'static',
-              marginTop: '-1.9rem',
-              marginBottom: '-1.4rem',
-              marginRight: '-0.8rem',
+              marginBottom: '-1.5rem ',
+              marginTop: '-0.5rem',
               display: 'flex',
-              justifyContent: 'flex-end'
+              justifyContent: 'center'
             }}>
           <IconButton
+          color='secondary'
+          size='large'
            aria-label='like'
            onClick={saveImage}>
-            <ThumbUp/>
+            <FavoriteBorder fontSize='inherit'/>
           </IconButton>
         </Box>
           </CardContent>
