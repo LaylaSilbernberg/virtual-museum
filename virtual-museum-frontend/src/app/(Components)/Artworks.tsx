@@ -88,17 +88,16 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
             </Typography>
             <Box
             sx={{
-              position: 'static',
-              marginTop: '-1.9rem',
-              marginBottom: '-1.4rem',
-              marginRight: '-0.8rem',
+              marginBottom: '-1.5rem ',
+              marginTop: '-0.5rem',
               display: 'flex',
-              justifyContent: 'flex-end'
+              justifyContent: 'center'
             }}>
           <IconButton
+          size='large'
            aria-label='like'
            onClick={saveImage}>
-            <ThumbUp/>
+            <ThumbUp fontSize='inherit'/>
           </IconButton>
         </Box>
           </CardContent>

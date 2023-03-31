@@ -65,12 +65,6 @@ const deleteImage = async() =>{
             </Typography>
             <Box
             sx={{
-              position: 'static',
-              //justifySelf: 'flex-start',
-              //alignSelf: 'flex-start',
-              // marginTop: '-1.9rem',
-              // marginBottom: '-1.4rem',
-              // marginRight: '-0.8rem',
               display: 'flex',
               justifyContent: 'center',
               marginBottom: '-1.5rem ',
