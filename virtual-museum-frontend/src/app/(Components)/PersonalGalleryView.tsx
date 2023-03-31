@@ -1,12 +1,10 @@
 import { useTheme, Box} from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import  {Data} from '../(Interfaces)/interfaces'
-import Artworks from './Artworks'
-import Video from 'next/image'
+import  {Data, PersonalGalleryViewProp} from '../(Interfaces)/interfaces'
 import { GalleryProp, PersonalGalleryProp } from '../(Props)/props';
 import PersonalArtworks from './PersonalArtworks';
 
-const PersonalGalleryView = ({pageData}: PersonalGalleryProp) => {  
+const PersonalGalleryView = ({paramID, images}: PersonalGalleryViewProp) => {  
   return (
 <main className="homepage__main">
         <Box
@@ -21,10 +19,11 @@ const PersonalGalleryView = ({pageData}: PersonalGalleryProp) => {
             }
           }}
         >
-          {pageData?.map((element) => {
+          {images?.map((element) => {
             return <PersonalArtworks
               key={element.id}
-              id={52}
+              paramId={paramID}
+              id={element.id}
               thumbnail={element.thumbnail}
               artist_display={element.artistDisplay}
               title={element.title}

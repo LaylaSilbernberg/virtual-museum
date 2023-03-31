@@ -39,3 +39,8 @@ export interface Image {
     artistDisplay: string;
     thumbnail:     ThumbnailDTO | null;
 }
+
+export interface PersonalGalleryViewProp{
+    images?: Image[];
+    paramID: string;
+}

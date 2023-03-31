@@ -4,8 +4,6 @@ import Artworks from './Artworks'
 import { GalleryProp } from '../(Props)/props';
 
 const MainGallery = ({pageData}: GalleryProp) => {
-  console.log(pageData);
-  
   return (
 <main className="homepage__main">
         <Box
