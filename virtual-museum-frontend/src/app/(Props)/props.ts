@@ -1,4 +1,4 @@
-import { Data, Thumbnail, Image } from "../(Interfaces)/interfaces";
+import { Data, Thumbnail, Image, ThumbnailDTO } from "../(Interfaces)/interfaces";
 
 export interface ArtworkProps {
     id?: number;
@@ -27,5 +27,5 @@ export interface PersonalArtworkProp{
     title: string;
     place_of_origin: string;
     artist_display: string;
-    thumbnail: Thumbnail | null;
+    thumbnail: ThumbnailDTO | null;
 }

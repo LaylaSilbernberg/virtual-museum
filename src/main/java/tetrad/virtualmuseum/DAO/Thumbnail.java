@@ -21,9 +21,9 @@ public class Thumbnail {
     @Column(name = "alt_text")
     private String altText;
 
-    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "thumbnail_id")
+    @JsonIgnore
+    @JoinColumn(name = "thumbnail_id", referencedColumnName = "id")
     private Image image;
 
     public Image getImage() {
@@ -40,6 +40,8 @@ public class Thumbnail {
         this.height = height;
         this.altText = altText;
     }
+
+
 
     public Thumbnail() {
     }

@@ -14,7 +14,6 @@ const getPage = async() => {
 
     const data = await fetch(url);
     const result = await data.json();
-    console.log(result)
 
     setPage(result.images);
 }
@@ -25,7 +24,14 @@ useEffect(() => {
 
     
   return (
- <PersonalGalleryView pageData={page} />)
+    <><video
+      id='background_video'
+      className='background__video'
+      autoPlay
+      loop
+      muted>
+      <source src='/personalgalleryclip.mp4' />
+    </video><PersonalGalleryView pageData={page} /></>)
   
 }
 

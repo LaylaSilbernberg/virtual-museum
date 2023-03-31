@@ -1,15 +1,17 @@
 import React, {useState } from 'react'
-import { Box, Card, CardContent, IconButton, Typography} from '@mui/material';
+import { Box, Card, CardContent, IconButton, Typography, useMediaQuery, useTheme} from '@mui/material';
 import {PersonalArtworkProp} from '../(Props)/props'
 import Image from "next/image";
 import Popup from 'reactjs-popup';
-import { ThumbUp } from '@mui/icons-material';
+import { Delete } from '@mui/icons-material';
 
 
 
-const Artworks = ({id, image_id, title, place_of_origin, artist_display, thumbnail}: PersonalArtworkProp) => {
+const PersonalArtworks = ({id, image_id, title, place_of_origin, artist_display, thumbnail}: PersonalArtworkProp) => {
 
     const [openImage, setOpenImage] = useState<boolean>(false);
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
 
     openImage ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
@@ -33,14 +35,20 @@ const deleteImage = async() =>{
         <Image
           className='largeImage__artwork'
           src={`https://www.artic.edu/iiif/2/${image_id}/full/843,/0/default.jpg`}
-          alt={thumbnail ? `${thumbnail.alt_text}` : ""}
-          width={500}
-          height={500}
+          alt={thumbnail ? `${thumbnail.altText}` : ""}
+          width={300}
+          height={300}
+          style={matches ? {
+            width: 500,
+            height: 500
+          }: undefined}
           onClick={() => setOpenImage(false)}
           priority />
         <Card
           className='largeImage__textCard'
-          sx={{ maxWidth: 500 }}
+          sx={{ width: {
+            xs: 300,
+            sm: 500}}}
         >
           <CardContent>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -53,21 +61,26 @@ const deleteImage = async() =>{
               Origin: {place_of_origin}
             </Typography>
             <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              {thumbnail ? thumbnail.alt_text : ""}
+              {thumbnail ? thumbnail.altText : ""}
             </Typography>
             <Box
             sx={{
               position: 'static',
-              marginTop: '-1.9rem',
-              marginBottom: '-1.4rem',
-              marginRight: '-0.8rem',
+              //justifySelf: 'flex-start',
+              //alignSelf: 'flex-start',
+              // marginTop: '-1.9rem',
+              // marginBottom: '-1.4rem',
+              // marginRight: '-0.8rem',
               display: 'flex',
-              justifyContent: 'flex-end'
+              justifyContent: 'center',
+              marginBottom: '-1.5rem ',
+              marginTop: '-0.5rem'
             }}>
           <IconButton
+          size='large'
            aria-label='delete'
            onClick={deleteImage}>
-            <ThumbUp/>
+            <Delete fontSize = "inherit"/>
           </IconButton>
         </Box>
           </CardContent>
@@ -78,7 +91,7 @@ const deleteImage = async() =>{
         <Image
           className='image__artwork'
           src={`https://www.artic.edu/iiif/2/${image_id}/full/400,/0/default.jpg`}
-          alt={thumbnail ? `${thumbnail.alt_text}` : "This text has no alt text"}
+          alt={thumbnail ? `${thumbnail.altText}` : "This text has no alt text"}
           width={300}
           height={300}
           onClick={() => setOpenImage(true)}
@@ -87,4 +100,4 @@ const deleteImage = async() =>{
   )
   }
 
-export default Artworks
+export default PersonalArtworks

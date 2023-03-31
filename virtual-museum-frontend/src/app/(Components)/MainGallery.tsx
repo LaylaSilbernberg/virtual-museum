@@ -1,8 +1,6 @@
-import { useTheme, Box} from '@mui/material';
+import { Box} from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import  {Data} from '../(Interfaces)/interfaces'
 import Artworks from './Artworks'
-import Video from 'next/image'
 import { GalleryProp } from '../(Props)/props';
 
 const MainGallery = ({pageData}: GalleryProp) => {

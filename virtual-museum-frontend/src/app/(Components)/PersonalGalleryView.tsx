@@ -6,9 +6,7 @@ import Video from 'next/image'
 import { GalleryProp, PersonalGalleryProp } from '../(Props)/props';
 import PersonalArtworks from './PersonalArtworks';
 
-const MainGallery = ({pageData}: PersonalGalleryProp) => {
-  console.log(pageData);
-  
+const PersonalGalleryView = ({pageData}: PersonalGalleryProp) => {  
   return (
 <main className="homepage__main">
         <Box
@@ -38,4 +36,4 @@ const MainGallery = ({pageData}: PersonalGalleryProp) => {
   );
 }
 
-export default MainGallery
+export default PersonalGalleryView

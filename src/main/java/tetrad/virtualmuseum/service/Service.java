@@ -25,27 +25,15 @@ public class Service {
 
     @Transactional
     public Gallery saveGallery(ImageDTO dto){
-        System.out.println(dto.personalGalleryId());
         Gallery gallery = repo.findGalleryById(dto.personalGalleryId());
 
         Thumbnail thumbnail = new Thumbnail(dto.thumbnailDTO().width(), dto.thumbnailDTO().height(), dto.thumbnailDTO().altText());
 
         Image image = new Image(dto.imageId(), dto.title(), dto.placeOfOrigin(), dto.artistDisplay(), gallery, thumbnail);
 
-        List<Image> list = gallery.getImages();
-        list.add(image);
+        thumbnail.setImage(image);
 
-        gallery.setImages(list);
-
-        System.out.println(gallery.getImages().get(0).getTitle());
-
-        repo.save(gallery);
-
-        System.out.println("2nd: ");
-
-        Gallery gallery2 = repo.findGalleryById(dto.personalGalleryId());
-
-        System.out.println(gallery2.getImages().get(0).getTitle());
+        gallery.getImages().add(image);
 
        return repo.save(gallery);
     }

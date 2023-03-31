@@ -25,10 +25,6 @@ public class Image {
     private String artistDisplay;
 
 
-//    @ManyToOne(optional = false)
-//    @JoinColumn(name = "id")
-//    private Gallery gallery;
-
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "image")
     private Thumbnail thumbnail;
 
