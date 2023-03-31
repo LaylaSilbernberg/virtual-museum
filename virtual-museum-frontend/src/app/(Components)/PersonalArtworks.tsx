@@ -71,6 +71,7 @@ const deleteImage = async() =>{
               marginTop: '-0.5rem'
             }}>
           <IconButton
+          color='error'
           size='large'
            aria-label='delete'
            onClick={deleteImage}>

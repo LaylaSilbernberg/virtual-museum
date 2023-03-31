@@ -3,7 +3,7 @@ import { Box, Button, Card, CardContent, IconButton, Typography, useMediaQuery, 
 import { ArtworkProps } from '../(Props)/props'
 import Image from "next/image";
 import Popup from 'reactjs-popup';
-import { Height, ThumbUp } from '@mui/icons-material';
+import { FavoriteBorder, ThumbUp } from '@mui/icons-material';
 import { Data } from '../(Interfaces)/interfaces';
 
 
@@ -94,10 +94,11 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
               justifyContent: 'center'
             }}>
           <IconButton
+          color='secondary'
           size='large'
            aria-label='like'
            onClick={saveImage}>
-            <ThumbUp fontSize='inherit'/>
+            <FavoriteBorder fontSize='inherit'/>
           </IconButton>
         </Box>
           </CardContent>
