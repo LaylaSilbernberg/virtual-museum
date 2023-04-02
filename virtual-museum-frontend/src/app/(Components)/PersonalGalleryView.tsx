@@ -1,4 +1,4 @@
-import { useTheme, Box} from '@mui/material';
+import { useTheme, Box, Grid} from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import  {Data, PersonalGalleryViewProp} from '../(Interfaces)/interfaces'
 import { GalleryProp, PersonalGalleryProp } from '../(Props)/props';
@@ -7,17 +7,8 @@ import PersonalArtworks from './PersonalArtworks';
 const PersonalGalleryView = ({paramID, images}: PersonalGalleryViewProp) => {  
   return (
 <main className="homepage__main">
-        <Box
-          className='gallery__box'
-          sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)"
-            }
-          }}
+        <Grid container
+          className='gallery__grid'
         >
           {images?.map((element) => {
             return <PersonalArtworks
@@ -30,7 +21,7 @@ const PersonalGalleryView = ({paramID, images}: PersonalGalleryViewProp) => {
               place_of_origin={element.placeOfOrigin}
               image_id={element.imageID} />;
           })}
-        </Box>
+        </Grid>
       </main>
   );
 }

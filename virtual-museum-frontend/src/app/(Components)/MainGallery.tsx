@@ -1,4 +1,4 @@
-import { Box} from '@mui/material';
+import { Box, Grid} from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import Artworks from './Artworks'
 import { GalleryProp } from '../(Props)/props';
@@ -6,17 +6,8 @@ import { GalleryProp } from '../(Props)/props';
 const MainGallery = ({pageData}: GalleryProp) => {
   return (
 <main className="homepage__main">
-        <Box
-          className='gallery__box'
-          sx={{
-            display: "grid",
-            gridTemplateColumns: {
-              xs: "repeat(1, 1fr)",
-              sm: "repeat(2, 1fr)",
-              md: "repeat(3, 1fr)",
-              lg: "repeat(4, 1fr)"
-            }
-          }}
+        <Grid container
+          className='gallery__grid'
         >
           {pageData?.map((element) => {
             return <Artworks
@@ -32,7 +23,7 @@ const MainGallery = ({pageData}: GalleryProp) => {
               place_of_origin={element.place_of_origin}
               image_id={element.image_id} />;
           })}
-        </Box>
+        </Grid>
       </main>
   );
 }

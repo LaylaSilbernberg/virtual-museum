@@ -32,15 +32,16 @@ body{
 .largeImage__container{
     background: rgba(27, 26, 26, 0.2); 
     backdrop-filter: blur(0.5rem);
-    z-index: 7;
     width: 100vw;
     height: 100vh;
     text-align: center;
+
 }
 
 .largeImage__artwork{
     margin-top: 1rem;
 }
+
 
 .artwork__gallery{
     text-align: left;
@@ -58,20 +59,46 @@ body{
     z-index: -1;
 }
 
-.nav__links{
-    text-decoration: none;
-    color: white;
-    margin: 1rem;
-    font-size: large;
-}
-
 .global__header{
     padding-top:0;
+    width: 100vw;
 }
+
+.nav__link-stack{
+    margin-left: 1rem;
+}
+
+.nav__links{
+    width: fit-content;
+    color: #fff;
+    position: relative;
+    text-decoration: none;
+  }
+
+  .nav__links:after {    
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    height: 0.125rem;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  .nav__links:hover:after{ 
+    width: 100%; 
+    left: 0; 
+  }
 
 @media (min-width:641px) {
     .largeImage__artwork{
         width: 500;
         height: 500;
+    }
+    .nav__links{
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        padding: 1rem 1.25rem;
     }
 }

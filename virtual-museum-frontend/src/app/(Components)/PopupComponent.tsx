@@ -13,7 +13,11 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
 
   return (
-    <Popup open={openImage} closeOnDocumentClick onClose={() => setOpenImage(false)}>
+    <Popup 
+    className='largeImage__popup'
+    open={openImage} 
+    closeOnDocumentClick 
+    onClose={() => setOpenImage(false)}>
     <Box
       id='largeImage__container'
       className="largeImage__container"

@@ -1,9 +1,7 @@
-import React, {useState } from 'react'
-import { Box, Card, CardContent, IconButton, Typography, useMediaQuery, useTheme} from '@mui/material';
+import React, {useEffect, useState } from 'react'
+import { Box, Grid, Grow, useMediaQuery, useTheme} from '@mui/material';
 import {PersonalArtworkProp} from '../(Props)/props'
 import Image from "next/image";
-import Popup from 'reactjs-popup';
-import { Delete } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import PersonalPopUp from './PersonalPopUp';
 
@@ -19,9 +17,12 @@ const PersonalArtworks = ({id, paramId, image_id, title, place_of_origin, artist
     const url = `http://localhost:8080/api/deleteImage/${paramId}?imageId=${id}`
     const router = useRouter();
     const [hideImage, setHideImage] = useState<boolean>(false)
+    const [appear, setAppear] = useState<boolean>(false)
 
     openImage ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
     openImage ? video.pause() : video.play();
+
+    useEffect(() => setAppear(true), [])
 
 
 
@@ -37,7 +38,11 @@ const deleteImage = async() =>{
 
   return (
 
-    !hideImage ? <>
+    !hideImage ? <Grid item
+    xs={12}
+    sm={6}
+    md={4}
+    lg={3}>
     <PersonalPopUp
     openImage={openImage}
     setOpenImage={setOpenImage}
@@ -49,6 +54,9 @@ const deleteImage = async() =>{
     place_of_origin={place_of_origin}
 
     />
+         <Grow 
+     in={appear}
+    {...(appear ? { timeout: 1000 } : {})}>
     <Box className="image__card">
         <Image
           className='image__artwork'
@@ -58,7 +66,9 @@ const deleteImage = async() =>{
           height={300}
           onClick={() => setOpenImage(true)}
           priority />
-      </Box></> : null
+      </Box>
+      </Grow>
+      </Grid> : null
           
           )
   }
