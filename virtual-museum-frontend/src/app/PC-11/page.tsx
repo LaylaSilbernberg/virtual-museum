@@ -23,6 +23,7 @@ const ModernArt = () => {
   return (
     <main
     className='PC__page'>
+      Head
                 <Grid container
           className='gallery__grid'
         >

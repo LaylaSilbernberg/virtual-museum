@@ -18,9 +18,7 @@ public record ImageDTO(
 
         @Nullable @JsonProperty("thumbnail") ThumbnailDTO thumbnailDTO,
 
-        @Nullable @JsonProperty("gallery_title") String galleryTitle,
         @JsonProperty("artist_display") String artistDisplay,
-        @Nullable @JsonProperty("gallery_id") Long galleryId,
         @JsonProperty("image_id") String imageId
 ) {
 
