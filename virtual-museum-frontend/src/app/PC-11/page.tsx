@@ -108,15 +108,16 @@ position:'absolute'}}
   </Box>
   <Box
   sx={{position: 'absolute',
+  top:'95%',
+ transform: 'translate(0%, 115%)',
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
   alignItems: 'center',
-  top: '87.5%',
+  alignContent: 'flex-start',
   justifyContent: 'flex-start'}}>
   <IconButton
-  sx={{color: 'white',
-position:'absolute'}}
+  sx={{color: 'white'}}
   onClick={() => router.back()}>
     <West
     sx={{fontSize: 'xxx-large'}}/>

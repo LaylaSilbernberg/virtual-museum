@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Data } from '@/app/(Interfaces)/interfaces';
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
 import Artworks from '@/app/(Components)/Artworks';
-import { Height, NorthEast, South, West } from '@mui/icons-material';
+import { Height, North, NorthEast, South, SouthEast, West } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 
@@ -43,17 +43,17 @@ const ModernArtRoom2 = () => {
       }}/>
                       <Box
   sx={{position: 'absolute',
-  top: '13.5%',
+  top: '25%',
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'flex-end'}}>
+  justifyContent: 'center'}}>
   <IconButton
-  sx={{color: 'white',
+  sx={{color: 'black',
 position:'absolute'}}
-  onClick={() => router.push('/PC-11/Room1')}>
-    <NorthEast
+  onClick={() => router.push('/PC-11')}>
+    <North
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
   </Box>
@@ -66,14 +66,15 @@ position:'absolute'}}
       padding: '1rem 1.25rem',
       color: 'white'}}>
         <Typography
-        sx={{borderBottom:'solid white 0.125rem'}}
+        sx={{borderBottom:'solid black 0.125rem'}}
         variant='h2'><Link
         style={{textDecoration: 'none',
-      color: 'white'}}
+      color: 'black'}}
          href={'/PC-11'}>Modern Art
          </Link>
          </Typography>
       </Box>
+      
                 <Grid container
                 sx={{marginBottom: '3rem'}}
           className='gallery__grid'>
@@ -97,28 +98,12 @@ position:'absolute'}}
   width: '100vw',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'}}>
+  justifyContent: 'flex-end'}}>
   <IconButton
-  sx={{color: 'white',
+  sx={{color: 'black',
 position:'absolute'}}
-  onClick={() => router.push('/PC-11/Room2')}>
-    <South
-    sx={{fontSize: 'xxx-large'}}/>
-  </IconButton>
-  </Box>
-  <Box
-  sx={{position: 'absolute',
-  flexDirection: 'row',
-  width: '100vw',
-  display: 'flex',
-  alignItems: 'center',
-  top: '87.5%',
-  justifyContent: 'flex-start'}}>
-  <IconButton
-  sx={{color: 'white',
-position:'absolute'}}
-  onClick={() => router.back()}>
-    <West
+  onClick={() => router.push('/PC-11/Room4')}>
+    <SouthEast
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
   </Box>

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
-import { East, SouthWest } from '@mui/icons-material';
+import { ArrowDownward, ArrowForwardIos, East, KeyboardArrowDown, NorthWest, SouthEast, SouthWest } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import { Data } from '@/app/(Interfaces)/interfaces';
@@ -30,7 +30,7 @@ const ModernArtRoom1 = () => {
       <Image
       height={0}
       width={0}
-      src={'https://images.unsplash.com/photo-1556027505-4f4445f02ad7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1vZGVybiUyMGFydCUyMG11c2V1bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60'
+      src={'https://images.unsplash.com/photo-1541665234574-8e72eb7cd028?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80'
       }
       alt='Image of a gallery with a classical statue front and center'
       style={{
@@ -43,20 +43,20 @@ const ModernArtRoom1 = () => {
       }}/>
                       <Box
   sx={{position: 'absolute',
-  top: '108%',
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end'}}>
+  alignItems: 'flex-start',
+  justifyContent: 'flex-start'}}>
   <IconButton
   sx={{color: 'white',
 position:'absolute'}}
   onClick={() => router.push('/PC-11/Room3')}>
-    <East
+    <NorthWest
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
   </Box>
+
             <Box
       display={'flex'}
       justifyContent={'center'}
@@ -66,14 +66,15 @@ position:'absolute'}}
       padding: '1rem 1.25rem',
       color: 'white'}}>
         <Typography
-        sx={{borderBottom:'solid white 0.125rem'}}
+        sx={{borderBottom:'solid black 0.125rem'}}
         variant='h2'><Link
         style={{textDecoration: 'none',
-      color: 'white'}}
+      color: 'black'}}
          href={'/PC-11'}>Modern Art
          </Link>
          </Typography>
       </Box>
+      
                 <Grid container
                 sx={{marginBottom: '3rem'}}
           className='gallery__grid'>
@@ -96,14 +97,30 @@ position:'absolute'}}
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   justifyContent: 'flex-start'}}>
   <IconButton
   sx={{color: 'white',
-position:'absolute'}}
+position:'absolut e'}}
   onClick={() => router.push('/PC-11')}>
     <SouthWest
     sx={{fontSize: 'xxx-large'}}/>
+  </IconButton>
+  </Box>
+
+  <Box
+  sx={{position: 'absolute',
+  flexDirection: 'row',
+  width: '100vw',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'}}>
+  <IconButton
+  sx={{color: 'white',
+position:'absolute'}}
+  onClick={() => router.push('/PC-12')}>
+    <KeyboardArrowDown
+    sx={{fontSize: '4rem'}}/>
   </IconButton>
   </Box>
     </main>

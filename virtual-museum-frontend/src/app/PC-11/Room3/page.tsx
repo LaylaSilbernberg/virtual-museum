@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
-import { East, SouthWest } from '@mui/icons-material';
+import { East, SouthEast, SouthWest, West } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import { Data } from '@/app/(Interfaces)/interfaces';
@@ -30,7 +30,7 @@ const ModernArtRoom1 = () => {
       <Image
       height={0}
       width={0}
-      src={'https://images.unsplash.com/photo-1556027505-4f4445f02ad7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1vZGVybiUyMGFydCUyMG11c2V1bXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60'
+      src={'https://images.unsplash.com/photo-1547617401-3d15954a612d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
       }
       alt='Image of a gallery with a classical statue front and center'
       style={{
@@ -48,12 +48,12 @@ const ModernArtRoom1 = () => {
   width: '100vw',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'flex-end'}}>
+  justifyContent: 'flex-start'}}>
   <IconButton
   sx={{color: 'white',
 position:'absolute'}}
-  onClick={() => router.push('/PC-11/Room3')}>
-    <East
+  onClick={() => router.push('/PC-11/Room1')}>
+    <West
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
   </Box>
@@ -97,12 +97,12 @@ position:'absolute'}}
   width: '100vw',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'flex-start'}}>
+  justifyContent: 'flex-end'}}>
   <IconButton
   sx={{color: 'white',
 position:'absolute'}}
-  onClick={() => router.push('/PC-11')}>
-    <SouthWest
+  onClick={() => router.push('/PC-11/Room5')}>
+    <SouthEast
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
   </Box>
