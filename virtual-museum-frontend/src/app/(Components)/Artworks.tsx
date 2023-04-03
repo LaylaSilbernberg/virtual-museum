@@ -1,5 +1,5 @@
-import React, {useState } from 'react'
-import { Box, Button, Card, CardContent, IconButton, Typography, useMediaQuery, useTheme} from '@mui/material';
+import React, {useEffect, useState } from 'react'
+import { Box, Button, Card, CardContent, Grid, Grow, IconButton, Typography, useMediaQuery, useTheme} from '@mui/material';
 import { ArtworkProps } from '../(Props)/props'
 
 import Popup from 'reactjs-popup';
@@ -10,10 +10,11 @@ import Image from "next/image";
 
 
 
-const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbnail, gallery_title, gallery_id, department_title, department_id}: ArtworkProps) => {
+const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbnail,department_title, department_id}: ArtworkProps) => {
 
     const [openImage, setOpenImage] = useState<boolean>(false);
-    const video: HTMLVideoElement = document.querySelector(".background__video")!;
+    const video: HTMLVideoElement | null = document.querySelector(".background__video");
+    const [appear, setAppear] = useState<boolean>(false)
 
     //const url = `https://virtualmuseumappreal.azurewebsites.net/api/updateGallery`
     const url = `http://localhost:8080/api/updateGallery`
@@ -23,15 +24,13 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
       artist_display,
       place_of_origin,
       thumbnail,
-      gallery_title,
-      gallery_id,
       department_title,
       department_id,
       image_id
     }
 
     openImage ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
-    openImage ? video.pause() : video.play();
+    openImage ? video?.pause() : video?.play();
 
     const saveImage = async() => {
       await fetch(url, {
@@ -43,8 +42,14 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
       });
     }
 
+    useEffect(() => setAppear(true), [])
+
   return (
-     <>
+     <Grid item
+     xs={12}
+     sm={6}
+     md={4}
+     lg={3}>
      <PopupComponent
      openImage ={openImage}
      setOpenImage={setOpenImage}
@@ -54,6 +59,9 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
      title={title}
      artist_display={artist_display}
      place_of_origin={place_of_origin}/>
+     <Grow 
+     in={appear}
+    {...(appear ? { timeout: 1000 } : {})}>
     <Box className="image__card">
         <Image
           className='image__artwork'
@@ -63,8 +71,11 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
           height={300}
           onClick={() => setOpenImage(true)}
           priority />
-      </Box></>
+      </Box>
+      </Grow>
+      </Grid>
   )
+
   }
 
 export default Artworks

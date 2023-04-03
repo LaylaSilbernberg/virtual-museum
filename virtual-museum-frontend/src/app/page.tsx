@@ -13,8 +13,8 @@ export default function Home() {
 
   const getRandomPage = async() => {
       const totalPages = 9964;
-      const limit = 8;
-      const fields = "id,title,place_of_origin,department_title,thumbnail,department_id,gallery_title,gallery_id,artist_display,image_id";
+      const limit = 16;
+      const fields = "id,title,place_of_origin,department_title,thumbnail,department_id,artist_display,image_id";
       const url = `https://api.artic.edu/api/v1/artworks?fields=${fields}&limit=${limit}&page=${Math.floor(Math.random() * totalPages)}`;
 
       const data = await fetch(url);

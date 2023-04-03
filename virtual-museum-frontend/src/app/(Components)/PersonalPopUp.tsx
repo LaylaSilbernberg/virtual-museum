@@ -10,7 +10,11 @@ const PersonalPopUp = ({deleteImage, openImage, setOpenImage, image_id, thumbnai
 const theme = useTheme();
 const matches = useMediaQuery(theme.breakpoints.up('sm'));
   return (
-    <Popup open={openImage} closeOnDocumentClick onClose={() => setOpenImage(false)}>
+    <Popup 
+    className='largeImage__popup'
+    open={openImage} 
+    closeOnDocumentClick 
+    onClose={() => setOpenImage(false)}>
     <Box
       id='largeImage__container'
       className="largeImage__container"
@@ -18,7 +22,8 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
       rowGap="1rem"
       flexDirection="column"
       justifyContent="center"
-      alignItems="center">
+      alignItems="center"
+      onClick={() => setOpenImage(false)}>
         <Tilt>
       <Image
         className='largeImage__artwork'
@@ -31,7 +36,6 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
           width: 500,
           height: 500
         }: undefined}
-        onClick={() => setOpenImage(false)}
         priority />
         </Tilt>
       <Card

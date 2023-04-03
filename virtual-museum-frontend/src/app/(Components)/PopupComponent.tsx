@@ -1,19 +1,24 @@
-import { FavoriteBorder } from '@mui/icons-material'
+import { Bookmark, BookmarkBorder, FavoriteBorder, StarBorder } from '@mui/icons-material'
 import { Card, IconButton, Box, CardContent, Typography, useMediaQuery, useTheme } from '@mui/material'
 import title from 'material-ui/svg-icons/editor/title'
-import React from 'react'
+import React, { useState } from 'react'
 import Popup from 'reactjs-popup'
 import { PopupComponentProps } from '../(Props)/props'
 import Image from "next/image";
 import Tilt from 'react-parallax-tilt';
+import { zIndex } from 'material-ui/styles'
 
 const PopupComponent = ({saveImage, openImage, setOpenImage, image_id, thumbnail, title, artist_display, place_of_origin}: PopupComponentProps) => {
 const theme = useTheme();
+const [bookMark, setBookmark] = useState<boolean>(false);
 const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
 
   return (
-    <Popup open={openImage} closeOnDocumentClick onClose={() => setOpenImage(false)}>
+    <Popup 
+    className='largeImage__popup'
+    open={openImage} 
+    closeOnDocumentClick>
     <Box
       id='largeImage__container'
       className="largeImage__container"
@@ -31,7 +36,8 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
         height={300}
         style={matches ? {
           width: 500,
-          height: 500
+          height: 500,
+          zIndex: '9999'
         }: undefined}
         onClick={() => setOpenImage(false)}
         priority 
@@ -64,16 +70,21 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
             justifyContent: 'center'
           }}>
         <IconButton
-        color='secondary'
         size='large'
          aria-label='like'
-         onClick={saveImage}>
-          <FavoriteBorder fontSize='inherit'/>
+         onClick={() => {saveImage!(); 
+         setBookmark(true)}}>
+         {!bookMark ? <BookmarkBorder
+          sx={{color: 'black'}}
+           fontSize='inherit'/> 
+           : 
+           <Bookmark
+          sx={{color: 'black'}}
+           fontSize='inherit'/>}
         </IconButton>
       </Box>
         </CardContent>
       </Card>
-
     </Box>
   </Popup>
   )
