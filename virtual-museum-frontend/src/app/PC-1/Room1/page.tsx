@@ -1,16 +1,12 @@
 'use client'
 
+import Artworks from '@/app/(Components)/Artworks';
+import { Data } from '@/app/(Interfaces)/interfaces';
+import { Box, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { Data } from '../(Interfaces)/interfaces';
-import { Box, Grid, IconButton, Typography } from '@mui/material';
-import Artworks from '../(Components)/Artworks';
-import { ArrowForwardIos } from '@mui/icons-material';
-import {useRouter} from 'next/navigation';
-import { colors } from 'material-ui/styles';
 
-const ArtsOfAfrica = () => {
+const PCRoom1 = () => {
     const [page, setPage] = useState<Data[]>();
-    const router = useRouter();
 
     const getSpecificDepartment = async() => {
         const limit=16;
@@ -27,8 +23,7 @@ const ArtsOfAfrica = () => {
   return (
     <main
     className='PC__page'>
-
-      <Box
+              <Box
       display={'flex'}
       justifyContent={'center'}
       sx={{
@@ -40,23 +35,6 @@ const ArtsOfAfrica = () => {
         sx={{borderBottom:'solid white 0.125rem'}}
         variant='h2'>Arts of Africa</Typography>
       </Box>
-        <Box
-  sx={{position: 'sticky',
-  flexDirection: 'row',
-  width: '100vw',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-end',
-  top: '50%'}}>
-  <IconButton
-  sx={{color: 'white',
-position:'absolute'}}
-  size='large'
-  onClick={() => router.push('/PC-1/Room1')}>
-    <ArrowForwardIos
-    fontSize='inherit'/>
-  </IconButton>
-  </Box>
                 <Grid container
           className='gallery__grid'
         >
@@ -77,4 +55,4 @@ position:'absolute'}}
   )
 }
 
-export default ArtsOfAfrica
+export default PCRoom1
