@@ -1,11 +1,31 @@
-import { Box, Grid} from '@mui/material';
+import {Box, Grid, IconButton} from '@mui/material';
+import { ArrowBackIos, ArrowForwardIos} from '@mui/icons-material';
 import React, { useEffect, useState } from 'react'
 import Artworks from './Artworks'
 import { GalleryProp } from '../(Props)/props';
+import { useRouter } from 'next/navigation';
 
 const MainGallery = ({pageData}: GalleryProp) => {
+  const router = useRouter()
   return (
 <main className="homepage__main">
+  <Box
+  sx={{position: 'sticky',
+  flexDirection: 'row',
+  width: '100vw',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  top: '50%'}}>
+  <IconButton
+  sx={{color: 'white',
+position:'absolute'}}
+  size='large'
+  onClick={() => router.push('/PC-1')}>
+    <ArrowForwardIos
+    fontSize='inherit'/>
+  </IconButton>
+  </Box>
         <Grid container
           className='gallery__grid'
         >
@@ -13,8 +33,6 @@ const MainGallery = ({pageData}: GalleryProp) => {
             return <Artworks
               key={element.id}
               id={52}
-              gallery_title={element.gallery_title}
-              gallery_id={element.gallery_id}
               department_title={element.department_title}
               department_id={element.department_id}
               thumbnail={element.thumbnail}

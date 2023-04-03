@@ -22,7 +22,8 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
       rowGap="1rem"
       flexDirection="column"
       justifyContent="center"
-      alignItems="center">
+      alignItems="center"
+      onClick={() => setOpenImage(false)}>
         <Tilt>
       <Image
         className='largeImage__artwork'
@@ -35,7 +36,6 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
           width: 500,
           height: 500
         }: undefined}
-        onClick={() => setOpenImage(false)}
         priority />
         </Tilt>
       <Card

@@ -10,10 +10,10 @@ import Image from "next/image";
 
 
 
-const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbnail, gallery_title, gallery_id, department_title, department_id}: ArtworkProps) => {
+const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbnail,department_title, department_id}: ArtworkProps) => {
 
     const [openImage, setOpenImage] = useState<boolean>(false);
-    const video: HTMLVideoElement = document.querySelector(".background__video")!;
+    const video: HTMLVideoElement | null = document.querySelector(".background__video");
     const [appear, setAppear] = useState<boolean>(false)
 
     //const url = `https://virtualmuseumappreal.azurewebsites.net/api/updateGallery`
@@ -24,15 +24,13 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
       artist_display,
       place_of_origin,
       thumbnail,
-      gallery_title,
-      gallery_id,
       department_title,
       department_id,
       image_id
     }
 
     openImage ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
-    openImage ? video.pause() : video.play();
+    openImage ? video?.pause() : video?.play();
 
     const saveImage = async() => {
       await fetch(url, {

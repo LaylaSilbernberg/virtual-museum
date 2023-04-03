@@ -1,4 +1,4 @@
-import { FavoriteBorder } from '@mui/icons-material'
+import { Bookmark, BookmarkBorder, FavoriteBorder, StarBorder } from '@mui/icons-material'
 import { Card, IconButton, Box, CardContent, Typography, useMediaQuery, useTheme } from '@mui/material'
 import title from 'material-ui/svg-icons/editor/title'
 import React from 'react'
@@ -25,7 +25,8 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
       rowGap="1rem"
       flexDirection="column"
       justifyContent="center"
-      alignItems="center">
+      alignItems="center"
+      onClick={() => setOpenImage(false)}>
         <Tilt>
       <Image
         className='largeImage__artwork'
@@ -37,7 +38,6 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
           width: 500,
           height: 500
         }: undefined}
-        onClick={() => setOpenImage(false)}
         priority 
         />
         </Tilt>
@@ -68,11 +68,12 @@ const matches = useMediaQuery(theme.breakpoints.up('sm'));
             justifyContent: 'center'
           }}>
         <IconButton
-        color='secondary'
         size='large'
          aria-label='like'
          onClick={saveImage}>
-          <FavoriteBorder fontSize='inherit'/>
+          <BookmarkBorder
+          sx={{color: 'black'}}
+           fontSize='inherit'/>
         </IconButton>
       </Box>
         </CardContent>
