@@ -7,6 +7,7 @@ import Artworks from '../(Components)/Artworks';
 import { ArrowForwardIos } from '@mui/icons-material';
 import {useRouter} from 'next/navigation';
 import { colors } from 'material-ui/styles';
+import Link from 'next/link';
 
 const ArtsOfAfrica = () => {
     const [page, setPage] = useState<Data[]>();
@@ -38,7 +39,10 @@ const ArtsOfAfrica = () => {
       color: 'white'}}>
         <Typography
         sx={{borderBottom:'solid white 0.125rem'}}
-        variant='h2'>Arts of Africa</Typography>
+        variant='h2'><Link
+        style={{textDecoration: 'none',
+      color: 'white'}}
+         href={'/PC-1'}>Arts of Africa</Link></Typography>
       </Box>
         <Box
   sx={{position: 'sticky',

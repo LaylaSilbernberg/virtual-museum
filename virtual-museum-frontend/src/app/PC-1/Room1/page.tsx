@@ -3,6 +3,7 @@
 import Artworks from '@/app/(Components)/Artworks';
 import { Data } from '@/app/(Interfaces)/interfaces';
 import { Box, Grid, Typography } from '@mui/material';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 const PCRoom1 = () => {
@@ -23,7 +24,7 @@ const PCRoom1 = () => {
   return (
     <main
     className='PC__page'>
-              <Box
+      <Box
       display={'flex'}
       justifyContent={'center'}
       sx={{
@@ -33,7 +34,10 @@ const PCRoom1 = () => {
       color: 'white'}}>
         <Typography
         sx={{borderBottom:'solid white 0.125rem'}}
-        variant='h2'>Arts of Africa</Typography>
+        variant='h2'><Link
+        style={{textDecoration: 'none',
+      color: 'white'}}
+         href={'/PC-1'}>Arts of Africa</Link></Typography>
       </Box>
                 <Grid container
           className='gallery__grid'
