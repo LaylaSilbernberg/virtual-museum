@@ -2,11 +2,15 @@
 
 import React, { useEffect, useState } from 'react'
 import { Data } from '../(Interfaces)/interfaces';
-import { Grid } from '@mui/material';
+import {Box, Grid, IconButton, Typography} from '@mui/material';
 import Artworks from '../(Components)/Artworks';
+import Link from "next/link";
+import {ArrowBackIos, ArrowForwardIos, NorthEast, NorthWest, SouthEast} from "@mui/icons-material";
+import {useRouter} from 'next/navigation';
 
 const AppliedArtsOfEurope = () => {
     const [page, setPage] = useState<Data[]>();
+    const router = useRouter();
 
     const getSpecificDepartment = async() => {
         const limit=16;
@@ -23,6 +27,111 @@ const AppliedArtsOfEurope = () => {
   return (
     <main
     className='PC__page'>
+
+        <Box
+            display={'flex'}
+            justifyContent={'center'}
+            sx={{
+                textTransform: 'uppercase',
+                letterSpacing: '0.15em',
+                padding: '1rem 1.25rem',
+                color: 'white'}}>
+            <Typography
+                sx={{borderBottom:'solid white 0.125rem'}}
+                variant='h2'><Link
+                style={{textDecoration: 'none',
+                    color: 'white'}}
+                href={'/PC-9'}>Applied Arts of Europe</Link></Typography>
+        </Box>
+        <Box
+            sx={{position: 'sticky',
+                flexDirection: 'row',
+                width: '100vw',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+                top: '50%'}}>
+            <IconButton
+                sx={{color: 'white',
+                    position:'absolute'}}
+                size='large'
+                onClick={() => router.push('/PC-10')}>
+                <ArrowForwardIos
+                    fontSize='inherit'/>
+            </IconButton>
+        </Box>
+        <Box
+            sx={{position: 'sticky',
+                flexDirection: 'row',
+                width: '100vw',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                top: '50%'}}>
+            <IconButton
+                sx={{color: 'white',
+                    position:'absolute'}}
+                size='large'
+                onClick={() => router.push('/PC-8')}>
+                <ArrowBackIos
+                    fontSize='inherit'/>
+            </IconButton>
+        </Box>
+
+        <Box
+            sx={{position: 'absolute',
+                top: '13.5%',
+                flexDirection: 'row',
+                width: '100vw',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-end'}}>
+            <IconButton
+                sx={{color: 'white',
+                    position:'absolute'}}
+                size='large'
+                onClick={() => router.push('/PC-9/Room1')}>
+                <NorthEast
+                    sx = {{fontSize: 'xxx-large'}}/>
+            </IconButton>
+
+        </Box>
+        <Box
+            sx={{position: 'absolute',
+                top: '13.5%',
+                flexDirection: 'row',
+                width: '100vw',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start'}}>
+            <IconButton
+                sx={{color: 'white',
+                    position:'absolute'}}
+                size='large'
+                onClick={() => router.push('/PC-9/Room2')}>
+                <NorthWest
+                    sx = {{fontSize: 'xxx-large'}}/>
+            </IconButton>
+
+        </Box>
+
+        <Box
+            sx={{position: 'sticky',
+                flexDirection: 'row',
+                width: '100vw',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+                top: '90%'}}>
+            <IconButton
+                sx={{color: 'white',
+                    position:'absolute', fontSize: 'xxx-large'}}
+                size='large'
+                onClick={() => router.push('/PC-9/Room3')}>
+                <SouthEast
+                    sx = {{fontSize: 'xxx-large'}}/>
+            </IconButton>
+        </Box>
                 <Grid container
           className='gallery__grid'
         >

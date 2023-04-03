@@ -1,14 +1,14 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { Data } from '../(Interfaces)/interfaces';
-import { Box, Grid, IconButton, Typography } from '@mui/material';
-import Artworks from '../(Components)/Artworks';
-import {ArrowBackIos, ArrowForwardIos, NorthEast, SouthEast} from '@mui/icons-material';
-import {useRouter} from 'next/navigation';
+import Artworks from '@/app/(Components)/Artworks';
+import { Data } from '@/app/(Interfaces)/interfaces';
+import {Box, Grid, IconButton, Typography} from '@mui/material';
 import Link from 'next/link';
+import React, { useEffect, useState } from 'react'
+import {useRouter} from 'next/navigation';
+import {ArrowBackIos, ArrowForwardIos} from "@mui/icons-material";
 
-const ArtsOfAsia = () => {
+const PCRoom1 = () => {
     const [page, setPage] = useState<Data[]>();
     const router = useRouter();
 
@@ -27,7 +27,6 @@ const ArtsOfAsia = () => {
     return (
         <main
             className='PC__page'>
-
             <Box
                 display={'flex'}
                 justifyContent={'center'}
@@ -43,6 +42,7 @@ const ArtsOfAsia = () => {
                         color: 'white'}}
                     href={'/PC-7'}>Arts of Asia</Link></Typography>
             </Box>
+
             <Box
                 sx={{position: 'sticky',
                     flexDirection: 'row',
@@ -78,42 +78,8 @@ const ArtsOfAsia = () => {
                         fontSize='inherit'/>
                 </IconButton>
             </Box>
-            <Box
-                sx={{position: 'absolute',
-                    top: '13.5%',
-                    flexDirection: 'row',
-                    width: '100vw',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-end'}}>
-                <IconButton
-                    sx={{color: 'white',
-                        position:'absolute'}}
-                    size='large'
-                    onClick={() => router.push('/PC-7/Room1')}>
-                    <NorthEast
-                        sx = {{fontSize: 'xxx-large'}}/>
-                </IconButton>
 
-            </Box>
 
-            <Box
-                sx={{position: 'sticky',
-                    flexDirection: 'row',
-                    width: '100vw',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-end',
-                    top: '90%'}}>
-                <IconButton
-                    sx={{color: 'white',
-                        position:'absolute', fontSize: 'xxx-large'}}
-                    size='large'
-                    onClick={() => router.push('/PC-7/Room2')}>
-                    <SouthEast
-                        sx = {{fontSize: 'xxx-large'}}/>
-                </IconButton>
-            </Box>
             <Grid container
                   className='gallery__grid'
             >
@@ -130,10 +96,8 @@ const ArtsOfAsia = () => {
                         image_id={element.image_id} />;
                 })}
             </Grid>
-
         </main>
     )
 }
 
-export default ArtsOfAsia
-
+export default PCRoom1
