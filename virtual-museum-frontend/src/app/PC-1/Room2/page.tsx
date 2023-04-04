@@ -2,7 +2,7 @@
 
 import Artworks from '@/app/(Components)/Artworks';
 import { Data } from '@/app/(Interfaces)/interfaces';
-import { East, NorthEast, West } from '@mui/icons-material';
+import { ArrowForwardIos, North, SouthEast } from '@mui/icons-material';
 import { Box, Grid, IconButton, Typography } from '@mui/material';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
@@ -20,15 +20,15 @@ const PCRoom1 = () => {
         const result = await (await fetch(url)).json();
         setPage(result.data)
     }
-
+    const router = useRouter();
     useEffect(() => {getSpecificDepartment()}, [])
-const router = useRouter();
+
   return (
-  
+
     <><Image
       height={0}
       width={0}
-      src={'  https://images.pexels.com/photos/1049500/pexels-photo-1049500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
+      src={'https://images.pexels.com/photos/6056456/pexels-photo-6056456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
       alt='Image of a gallery with a classical statue front and center'
       style={{
         position: 'fixed',
@@ -56,54 +56,53 @@ const router = useRouter();
                 color: 'white'
               }}
               href={'/PC-1'}>Arts of Africa</Link></Typography>
-
-
-          <Box
-            sx={{
-              position: 'absolute',
-              flexDirection: 'row',
-              width: '100vw',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              top: '13.5vh'
-            }}>
-            <IconButton
-              sx={{
-                color: 'white',
-                position: 'absolute', fontSize: 'xxx-large'
-              }}
-              size='large'
-              onClick={() => router.push('/PC-1')}>
-              <West
-                fontSize='inherit' />
-            </IconButton>
-          </Box>
-
-          <Box
-            sx={{
-              position: 'absolute',
-              flexDirection: 'row',
-              width: '100vw',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-end',
-              top: '13.5vh'
-            }}>
-            <IconButton
-              sx={{
-                color: 'white',
-                position: 'absolute', fontSize: 'xxx-large'
-              }}
-              size='large'
-              onClick={() => router.push('/PC-1/Room3')}>
-              <NorthEast
-                fontSize='inherit' />
-            </IconButton>
-          </Box>
-
-
         </Box>
+        <Box
+          sx={{
+            position: 'absolute',
+            flexDirection: 'row',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            top: '90vh'
+          }}>
+          <IconButton
+            sx={{
+              color: 'white',
+              position: 'absolute', fontSize: 'xxx-large'
+            }}
+            size='large'
+            onClick={() => router.push('/PC-3')}>
+            <ArrowForwardIos
+              fontSize='inherit' />
+          </IconButton>
+        </Box>
+
+
+
+        <Box
+          sx={{
+            position: 'absolute',
+            flexDirection: 'row',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            top: '25%'
+          }}>
+          <IconButton
+            sx={{
+              color: 'white',
+              position: 'absolute', fontSize: 'xxx-large'
+            }}
+            size='large'
+            onClick={() => router.push('/PC-1')}>
+            <North
+              fontSize='inherit' />
+          </IconButton>
+        </Box>
+
         <Grid container
           className='gallery__grid'
         >
@@ -120,7 +119,29 @@ const router = useRouter();
               image_id={element.image_id} />;
           })}
         </Grid>
+
+        <Box
+          sx={{
+            position: 'absolute',
+            flexDirection: 'row',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end'
+          }}>
+          <IconButton
+            sx={{
+              color: 'white',
+              position: 'absolute', fontSize: 'xxx-large'
+            }}
+            size='large'
+            onClick={() => router.push('/PC-1/Room1')}>
+            <SouthEast
+              fontSize='inherit' />
+          </IconButton>
+        </Box>
       </main></>
+
   )
 }
 

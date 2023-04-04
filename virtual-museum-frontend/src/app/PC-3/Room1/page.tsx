@@ -7,7 +7,7 @@ import { Box, Grid, IconButton, Typography } from '@mui/material';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image';
+import Image from 'next/image'
 const PCRoom1 = () => {
     const [page, setPage] = useState<Data[]>();
 
@@ -15,7 +15,7 @@ const PCRoom1 = () => {
         const limit=16;
         const maxPages=62;
         const fields = "id,title,place_of_origin,department_title,thumbnail,department_id,artist_display,image_id";
-        const url = `https://api.artic.edu/api/v1/artworks/search?q=Arts Of Africa&fields=${fields}&limit=${limit}&page=${Math.floor(Math.random() * maxPages)}`;
+        const url = `https://api.artic.edu/api/v1/artworks/search?q=Arts Of The Americas&fields=${fields}&limit=${limit}&page=${Math.floor(Math.random() * maxPages)}`;
 
         const result = await (await fetch(url)).json();
         setPage(result.data)
@@ -24,11 +24,12 @@ const PCRoom1 = () => {
     useEffect(() => {getSpecificDepartment()}, [])
 const router = useRouter();
   return (
-  
+
+    
     <><Image
       height={0}
       width={0}
-      src={'  https://images.pexels.com/photos/1049500/pexels-photo-1049500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
+      src={'https://images.pexels.com/photos/2872940/pexels-photo-2872940.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
       alt='Image of a gallery with a classical statue front and center'
       style={{
         position: 'fixed',
@@ -55,30 +56,7 @@ const router = useRouter();
                 textDecoration: 'none',
                 color: 'white'
               }}
-              href={'/PC-1'}>Arts of Africa</Link></Typography>
-
-
-          <Box
-            sx={{
-              position: 'absolute',
-              flexDirection: 'row',
-              width: '100vw',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              top: '13.5vh'
-            }}>
-            <IconButton
-              sx={{
-                color: 'white',
-                position: 'absolute', fontSize: 'xxx-large'
-              }}
-              size='large'
-              onClick={() => router.push('/PC-1')}>
-              <West
-                fontSize='inherit' />
-            </IconButton>
-          </Box>
+              href={'/PC-3'}>Arts Of The Americas</Link></Typography>
 
           <Box
             sx={{
@@ -96,12 +74,34 @@ const router = useRouter();
                 position: 'absolute', fontSize: 'xxx-large'
               }}
               size='large'
-              onClick={() => router.push('/PC-1/Room3')}>
-              <NorthEast
+              onClick={() => router.push('/PC-3/Room3')}>
+              <East
                 fontSize='inherit' />
             </IconButton>
-          </Box>
 
+          </Box>
+          <Box
+            sx={{
+              position: 'absolute',
+              flexDirection: 'row',
+              width: '100vw',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-start',
+              top: '13.5vh'
+            }}>
+            <IconButton
+              sx={{
+                color: 'white',
+                position: 'absolute', fontSize: 'xxx-large'
+              }}
+              size='large'
+              onClick={() => router.push('/PC-3')}>
+              <West
+                fontSize='inherit' />
+            </IconButton>
+
+          </Box>
 
         </Box>
         <Grid container

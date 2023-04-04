@@ -2,12 +2,12 @@
 
 import Artworks from '@/app/(Components)/Artworks';
 import { Data } from '@/app/(Interfaces)/interfaces';
-import { East, NorthEast, West } from '@mui/icons-material';
+import { ArrowForwardIos, East, West } from '@mui/icons-material';
 import { Box, Grid, IconButton, Typography } from '@mui/material';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-import Image from 'next/image';
+import Image from 'next/image'
 const PCRoom1 = () => {
     const [page, setPage] = useState<Data[]>();
 
@@ -24,11 +24,11 @@ const PCRoom1 = () => {
     useEffect(() => {getSpecificDepartment()}, [])
 const router = useRouter();
   return (
-  
+    
     <><Image
       height={0}
       width={0}
-      src={'  https://images.pexels.com/photos/1049500/pexels-photo-1049500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
+      src={'https://images.pexels.com/photos/2965136/pexels-photo-2965136.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
       alt='Image of a gallery with a classical statue front and center'
       style={{
         position: 'fixed',
@@ -57,29 +57,6 @@ const router = useRouter();
               }}
               href={'/PC-1'}>Arts of Africa</Link></Typography>
 
-
-          <Box
-            sx={{
-              position: 'absolute',
-              flexDirection: 'row',
-              width: '100vw',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              top: '13.5vh'
-            }}>
-            <IconButton
-              sx={{
-                color: 'white',
-                position: 'absolute', fontSize: 'xxx-large'
-              }}
-              size='large'
-              onClick={() => router.push('/PC-1')}>
-              <West
-                fontSize='inherit' />
-            </IconButton>
-          </Box>
-
           <Box
             sx={{
               position: 'absolute',
@@ -88,7 +65,7 @@ const router = useRouter();
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'flex-end',
-              top: '13.5vh'
+              top: '90vh'
             }}>
             <IconButton
               sx={{
@@ -96,8 +73,8 @@ const router = useRouter();
                 position: 'absolute', fontSize: 'xxx-large'
               }}
               size='large'
-              onClick={() => router.push('/PC-1/Room3')}>
-              <NorthEast
+              onClick={() => router.push('/PC-3')}>
+              <ArrowForwardIos
                 fontSize='inherit' />
             </IconButton>
           </Box>
