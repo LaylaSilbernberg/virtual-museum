@@ -9,8 +9,8 @@ import {useRouter} from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 const PCRoom1 = () => {
+  
     const [page, setPage] = useState<Data[]>();
-
     const getSpecificDepartment = async() => {
         const limit=16;
         const maxPages=62;
