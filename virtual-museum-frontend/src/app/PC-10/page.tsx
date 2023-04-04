@@ -166,7 +166,7 @@ const PaintingAndSculptureOfEurope = () => {
             </Box>
             <Grid container
                   className='gallery__grid'>
-                {page?.map((element) => {
+                {page?.filter((element) => element.image_id).map((element) => {
                     return <Artworks
                         key={element.id}
                         id={52}

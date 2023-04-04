@@ -1,8 +1,8 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { Data } from '../(Interfaces)/interfaces';
-import { Box, Grid, IconButton, Typography } from '@mui/material';
+import React, {useEffect, useState} from 'react'
+import {Data} from '../(Interfaces)/interfaces';
+import {Box, Grid, IconButton, Typography} from '@mui/material';
 import Artworks from '../(Components)/Artworks';
 import {ArrowBackIos, ArrowForwardIos, NorthEast, SouthEast} from '@mui/icons-material';
 import {useRouter} from 'next/navigation';
@@ -13,9 +13,9 @@ const ArtsOfAsia = () => {
     const [page, setPage] = useState<Data[]>();
     const router = useRouter();
 
-    const getSpecificDepartment = async() => {
-        const limit=16;
-        const maxPages=62;
+    const getSpecificDepartment = async () => {
+        const limit = 16;
+        const maxPages = 62;
         const fields = "id,title,place_of_origin,department_title,thumbnail,department_id,artist_display,image_id";
         const url = `https://api.artic.edu/api/v1/artworks/search?q=Arts Of Asia&fields=${fields}&limit=${limit}&page=${Math.floor(Math.random() * maxPages)}`;
 
@@ -23,7 +23,9 @@ const ArtsOfAsia = () => {
         setPage(result.data)
     }
 
-    useEffect(() => {getSpecificDepartment()}, [])
+    useEffect(() => {
+        getSpecificDepartment()
+    }, [])
 
     return (
         <main
@@ -49,25 +51,32 @@ const ArtsOfAsia = () => {
                     textTransform: 'uppercase',
                     letterSpacing: '0.15em',
                     padding: '1rem 1.25rem',
-                    color: 'white'}}>
+                    color: 'white'
+                }}>
                 <Typography
-                    sx={{borderBottom:'solid white 0.125rem'}}
+                    sx={{borderBottom: 'solid white 0.125rem'}}
                     variant='h2'><Link
-                    style={{textDecoration: 'none',
-                        color: 'white'}}
+                    style={{
+                        textDecoration: 'none',
+                        color: 'white'
+                    }}
                     href={'/PC-7'}>Arts of Asia</Link></Typography>
             </Box>
             <Box
-                sx={{position: 'sticky',
+                sx={{
+                    position: 'sticky',
                     flexDirection: 'row',
                     width: '100vw',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'flex-start',
-                    top: '50%'}}>
+                    top: '50%'
+                }}>
                 <IconButton
-                    sx={{color: 'white',
-                        position:'absolute'}}
+                    sx={{
+                        color: 'white',
+                        position: 'absolute'
+                    }}
                     size='large'
                     onClick={() => router.push('/PC-6')}>
                     <ArrowBackIos
@@ -76,16 +85,20 @@ const ArtsOfAsia = () => {
             </Box>
 
             <Box
-                sx={{position: 'sticky',
+                sx={{
+                    position: 'sticky',
                     flexDirection: 'row',
                     width: '100vw',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'flex-end',
-                    top: '50%'}}>
+                    top: '50%'
+                }}>
                 <IconButton
-                    sx={{color: 'white',
-                        position:'absolute'}}
+                    sx={{
+                        color: 'white',
+                        position: 'absolute'
+                    }}
                     size='large'
                     onClick={() => router.push('/PC-8')}>
                     <ArrowForwardIos
@@ -93,45 +106,53 @@ const ArtsOfAsia = () => {
                 </IconButton>
             </Box>
             <Box
-                sx={{position: 'absolute',
+                sx={{
+                    position: 'absolute',
                     top: '13.5%',
                     flexDirection: 'row',
                     width: '100vw',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'flex-end'}}>
+                    justifyContent: 'flex-end'
+                }}>
                 <IconButton
-                    sx={{color: 'white',
-                        position:'absolute'}}
+                    sx={{
+                        color: 'white',
+                        position: 'absolute'
+                    }}
                     size='large'
                     onClick={() => router.push('/PC-7/Room1')}>
                     <NorthEast
-                        sx = {{fontSize: 'xxx-large'}}/>
+                        sx={{fontSize: 'xxx-large'}}/>
                 </IconButton>
 
             </Box>
 
             <Box
-                sx={{position: 'sticky',
+                sx={{
+                    position: 'sticky',
                     flexDirection: 'row',
                     width: '100vw',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'flex-end',
-                    top: '90%'}}>
+                    top: '90%'
+                }}>
                 <IconButton
-                    sx={{color: 'white',
-                        position:'absolute', fontSize: 'xxx-large'}}
+                    sx={{
+                        color: 'white',
+                        position: 'absolute', fontSize: 'xxx-large'
+                    }}
                     size='large'
                     onClick={() => router.push('/PC-7/Room2')}>
                     <SouthEast
-                        sx = {{fontSize: 'xxx-large'}}/>
+                        sx={{fontSize: 'xxx-large'}}/>
                 </IconButton>
             </Box>
             <Grid container
                   className='gallery__grid'
             >
-                {page?.map((element) => {
+                {page?.filter((element) => element.image_id).map((element) => {
                     return <Artworks
                         key={element.id}
                         id={52}
@@ -141,7 +162,7 @@ const ArtsOfAsia = () => {
                         artist_display={element.artist_display}
                         title={element.title}
                         place_of_origin={element.place_of_origin}
-                        image_id={element.image_id} />;
+                        image_id={element.image_id}/>;
                 })}
             </Grid>
 
