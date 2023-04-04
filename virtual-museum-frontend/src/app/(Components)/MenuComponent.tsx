@@ -22,15 +22,11 @@ const MenuComponent = () => {
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          style={matches ? {
-            textTransform: 'uppercase',
-            letterSpacing: '0.15em'
-            }: undefined}
           sx={{
           color: 'white',
           fontSize: 'medium'}}
         >
-          Dashboard
+          Departments
         </Button>
         <Menu
           id="positioned-menu"
