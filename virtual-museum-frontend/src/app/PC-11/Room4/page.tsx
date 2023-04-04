@@ -61,7 +61,6 @@ position:'absolute'}}
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
-  alignItems: 'flex-e d',
   justifyContent: 'flex-end'}}>
   <IconButton
   sx={{color: 'white',

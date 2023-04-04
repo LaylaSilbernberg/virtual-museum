@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { Data } from '../(Interfaces)/interfaces';
-import { Box, Grid, IconButton } from '@mui/material';
+import { Link, Box, Grid, IconButton, Typography } from '@mui/material';
 import Artworks from '../(Components)/Artworks';
 import { East, SouthWest } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
@@ -42,7 +42,7 @@ const PhotographyAndMedia = () => {
       }}/>
                           <Box
   sx={{position: 'absolute',
-  top: '94.5%',
+  top: '108%',
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
@@ -56,6 +56,24 @@ position:'absolute'}}
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
   </Box>
+
+  <Box
+      display={'flex'}
+      justifyContent={'center'}
+      sx={{
+      textTransform: 'uppercase',
+      letterSpacing: '0.15em',
+      padding: '1rem 1.25rem',
+      color: 'white'}}>
+        <Typography
+        sx={{borderBottom:'solid black 0.125rem'}}
+        variant='h2'><Link
+        style={{textDecoration: 'none',
+      color: 'black'}}
+         href={'/PC-12'}> Photography
+         </Link>
+         </Typography>
+      </Box>
                 <Grid container
           className='gallery__grid'
         >
