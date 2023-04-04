@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Data } from '../(Interfaces)/interfaces';
+import { Data } from '@/app/(Interfaces)/interfaces';
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
-import Artworks from '../(Components)/Artworks';
-import { SouthEast } from '@mui/icons-material';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image'
+import Artworks from '@/app/(Components)/Artworks';
+import { NorthWest, South, SouthEast, SouthWest } from '@mui/icons-material';
+import {useRouter} from 'next/navigation';
+import Image from 'next/image';
 
 const PrintsAndDrawings = () => {
     const [page, setPage] = useState<Data[]>();
@@ -27,11 +27,26 @@ const PrintsAndDrawings = () => {
   return (  
     <main
     className='PC__page'>
+<Box
+  sx={{position: 'absolute',
+  flexDirection: 'row',
+  width: '100vw',
+  display: 'flex',
+  alignContent: 'flex-start',
+  justifyContent: 'flex-start'}}>
+  <IconButton
+  sx={{color: 'white',
+position:'absolute'}}
+  onClick={() => router.push('/PC-13/Room1')}>
+    <NorthWest  
+    sx={{fontSize: 'xxx-large'}}/>
+  </IconButton>
+  </Box>
 
 <Image
       height={0}
       width={0}
-      src={'https://images.unsplash.com/photo-1452533006997-88feb60941a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80'
+      src={'https://images.unsplash.com/photo-1647716850730-6c1a35ef1950?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2662&q=80'
       }
       alt='Image of a gallery with a classical statue front and center'
       style={{
@@ -82,13 +97,13 @@ const PrintsAndDrawings = () => {
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
-  alignContent: 'flex-end',
-  justifyContent: 'flex-end'}}>
+  alignContent: 'flex-start',
+  justifyContent: 'flex-start'}}>
   <IconButton
   sx={{color: 'white',
 position:'absolute'}}
-  onClick={() => router.push('/PC-13/Room1')}>
-    <SouthEast
+  onClick={() => router.push('/PC-13/Room4')}>
+    <SouthWest
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
   </Box>

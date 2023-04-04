@@ -37,5 +37,6 @@ export default function Home() {
       <source src='/backgroundmuseum.mp4' />
     </video>
     <MainGallery 
-    pageData={mainPage}/></>)
+    pageData={mainPage}/>
+    </>)
 }

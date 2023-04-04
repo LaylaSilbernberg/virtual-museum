@@ -2,11 +2,15 @@
 
 import React, { useEffect, useState } from 'react'
 import { Data } from '../(Interfaces)/interfaces';
-import { Grid } from '@mui/material';
+import { Link, Box, Grid, IconButton, Typography } from '@mui/material';
 import Artworks from '../(Components)/Artworks';
+import { East, SouthWest } from '@mui/icons-material';
+import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 const PhotographyAndMedia = () => {
     const [page, setPage] = useState<Data[]>();
+    const router = useRouter();
 
     const getSpecificDepartment = async() => {
         const limit=16;
@@ -19,14 +23,61 @@ const PhotographyAndMedia = () => {
     }
 
     useEffect(() => {getSpecificDepartment()}, [])
-
   return (
     <main
     className='PC__page'>
+                  <Image
+      height={0}
+      width={0}
+      src={'https://images.unsplash.com/photo-1566654032194-09ec2c9c5d2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80'
+      }
+      alt='Image of a gallery with a classical statue front and center'
+      style={{
+        position: 'fixed',
+        right: '0',
+        bottom: '0',
+        minWidth: '100%',
+        minHeight: '100%',
+        zIndex: '-1'
+      }}/>
+                          <Box
+  sx={{position: 'absolute',
+  top: '108%',
+  flexDirection: 'row',
+  width: '100vw',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end'}}>
+  <IconButton
+  sx={{color: 'white',
+position:'absolute'}}
+  onClick={() => router.push('/PC-12/Room1')}>
+    <East
+    sx={{fontSize: 'xxx-large'}}/>
+  </IconButton>
+  </Box>
+
+  <Box
+      display={'flex'}
+      justifyContent={'center'}
+      sx={{
+      textTransform: 'uppercase',
+      letterSpacing: '0.15em',
+      padding: '1rem 1.25rem',
+      color: 'white'}}>
+        <Typography
+        sx={{borderBottom:'solid white 0.125rem'}}
+        variant='h2'><Link
+        style={{textDecoration: 'none',
+      color: 'white'}}
+         href={'/PC-12'}> Photography
+         </Link>
+         </Typography>
+      </Box>
                 <Grid container
           className='gallery__grid'
         >
-          {page?.map((element) => {
+          {page?.filter((element) => element.image_id).map((element) => {
             return <Artworks
               key={element.id}
               id={52}

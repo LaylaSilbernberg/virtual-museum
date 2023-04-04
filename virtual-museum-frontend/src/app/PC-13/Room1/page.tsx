@@ -1,12 +1,12 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Data } from '../(Interfaces)/interfaces';
+import { Data } from '@/app/(Interfaces)/interfaces';
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
-import Artworks from '../(Components)/Artworks';
-import { SouthEast } from '@mui/icons-material';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image'
+import Artworks from '@/app/(Components)/Artworks';
+import { South, SouthEast } from '@mui/icons-material';
+import {useRouter} from 'next/navigation';
+import Image from 'next/image';
 
 const PrintsAndDrawings = () => {
     const [page, setPage] = useState<Data[]>();
@@ -31,7 +31,7 @@ const PrintsAndDrawings = () => {
 <Image
       height={0}
       width={0}
-      src={'https://images.unsplash.com/photo-1452533006997-88feb60941a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80'
+      src={'https://images.unsplash.com/photo-1502078889459-923ef351c722?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1976&q=80'
       }
       alt='Image of a gallery with a classical statue front and center'
       style={{
@@ -52,10 +52,10 @@ const PrintsAndDrawings = () => {
       padding: '1rem 1.25rem',
       color: 'white'}}>
         <Typography
-        sx={{borderBottom:'solid white 0.125rem'}}
+        sx={{borderBottom:'solid black 0.125rem'}}
         variant='h2'><Link
         style={{textDecoration: 'none',
-      color: 'white'}}
+      color: 'black'}}
          href={'/PC-13'}> Prints and Drawings
          </Link>
          </Typography>
@@ -82,12 +82,28 @@ const PrintsAndDrawings = () => {
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
+  alignContent: 'center',
+  justifyContent: 'center'}}>
+  <IconButton
+  sx={{color: 'black',
+position:'absolute'}}
+  onClick={() => router.push('/PC-13/Room2')}>
+    <South
+    sx={{fontSize: 'xxx-large'}}/>
+  </IconButton>
+  </Box>
+
+  <Box
+  sx={{position: 'absolute',
+  flexDirection: 'row',
+  width: '100vw',
+  display: 'flex',
   alignContent: 'flex-end',
   justifyContent: 'flex-end'}}>
   <IconButton
-  sx={{color: 'white',
+  sx={{color: 'black',
 position:'absolute'}}
-  onClick={() => router.push('/PC-13/Room1')}>
+  onClick={() => router.push('/PC-13/Room3')}>
     <SouthEast
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
