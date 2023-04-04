@@ -6,7 +6,6 @@ import { Box, Grid, IconButton, Typography } from '@mui/material';
 import Artworks from '../(Components)/Artworks';
 import { ArrowForwardIos } from '@mui/icons-material';
 import {useRouter} from 'next/navigation';
-import { colors } from 'material-ui/styles';
 import Link from 'next/link';
 
 const ArtsOfAfrica = () => {
