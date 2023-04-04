@@ -7,6 +7,7 @@ import Artworks from '../(Components)/Artworks';
 import {useRouter} from 'next/navigation';
 import Link from "next/link";
 import {ArrowBackIos, ArrowForwardIos, NorthEast, SouthEast} from "@mui/icons-material";
+import Image from "next/image";
 
 
 const PaintingAndSculptureOfEurope = () => {
@@ -30,7 +31,34 @@ const PaintingAndSculptureOfEurope = () => {
     return (
         <main
             className='PC__page'>
-
+            <Image
+                height={0}
+                width={0}
+                src={'https://images.pexels.com/photos/460736/pexels-photo-460736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+                }
+                alt='Image of Paintings and Sculpture of Europe'
+                style={{
+                    position: 'fixed',
+                    right: '0',
+                    bottom: '0',
+                    minWidth: '100%',
+                    minHeight: '100%',
+                    zIndex: '-1'
+                }}/>
+            <Image
+                height={0}
+                width={0}
+                src={'https://images.unsplash.com/photo-1575223970966-76ae61ee7838?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2970&q=80'
+                }
+                alt='Image of Paintings and Sculpture of Europe'
+                style={{
+                    position: 'fixed',
+                    right: '0',
+                    bottom: '0',
+                    minWidth: '100%',
+                    minHeight: '100%',
+                    zIndex: '-1'
+                }}/>
             <Box
                 display={'flex'}
                 justifyContent={'center'}

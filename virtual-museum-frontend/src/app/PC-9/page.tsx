@@ -7,6 +7,7 @@ import Artworks from '../(Components)/Artworks';
 import Link from "next/link";
 import {ArrowBackIos, ArrowForwardIos, NorthEast, NorthWest, SouthEast} from "@mui/icons-material";
 import {useRouter} from 'next/navigation';
+import Image from "next/image";
 
 const AppliedArtsOfEurope = () => {
     const [page, setPage] = useState<Data[]>();
@@ -27,6 +28,20 @@ const AppliedArtsOfEurope = () => {
   return (
     <main
     className='PC__page'>
+        <Image
+            height={0}
+            width={0}
+            src={'https://images.unsplash.com/photo-1617445544584-ffc4aad88452?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
+            }
+            alt='Image of Applied arts of  gallery'
+            style={{
+                position: 'fixed',
+                right: '0',
+                bottom: '0',
+                minWidth: '100%',
+                minHeight: '100%',
+                zIndex: '-1'
+            }}/>
 
         <Box
             display={'flex'}

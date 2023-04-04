@@ -7,6 +7,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import {useRouter} from 'next/navigation';
 import {ArrowBackIos, ArrowForwardIos} from "@mui/icons-material";
+import Image from "next/image";
 
 const PCRoom1 = () => {
     const [page, setPage] = useState<Data[]>();
@@ -27,6 +28,20 @@ const PCRoom1 = () => {
   return (
     <main
     className='PC__page'>
+        <Image
+            height={0}
+            width={0}
+            src={'https://images.pexels.com/photos/460736/pexels-photo-460736.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            }
+            alt='Image of Paintings and Sculpture of Europe'
+            style={{
+                position: 'fixed',
+                right: '0',
+                bottom: '0',
+                minWidth: '100%',
+                minHeight: '100%',
+                zIndex: '-1'
+            }}/>
       <Box
       display={'flex'}
       justifyContent={'center'}

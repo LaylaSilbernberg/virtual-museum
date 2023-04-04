@@ -7,6 +7,7 @@ import Artworks from '../(Components)/Artworks';
 import Link from "next/link";
 import {ArrowBackIos, ArrowForwardIos, NorthEast, NorthWest, SouthEast} from "@mui/icons-material";
 import {useRouter} from 'next/navigation';
+import Image from "next/image";
 
 const ContemporaryArt = () => {
     const [page, setPage] = useState<Data[]>();
@@ -27,6 +28,21 @@ const ContemporaryArt = () => {
   return (
     <main
     className='PC__page'>
+
+        <Image
+            height={0}
+            width={0}
+            src={'https://images.unsplash.com/photo-1549925245-6a03760d291f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTE3fHxtdXNldW18ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60'
+            }
+            alt='Image of Contemporary art gallery'
+            style={{
+                position: 'fixed',
+                right: '0',
+                bottom: '0',
+                minWidth: '100%',
+                minHeight: '100%',
+                zIndex: '-1'
+            }}/>
         <Box
             display={'flex'}
             justifyContent={'center'}

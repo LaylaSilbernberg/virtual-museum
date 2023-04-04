@@ -7,6 +7,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import {useRouter} from 'next/navigation';
 import {ArrowBackIos, ArrowForwardIos} from "@mui/icons-material";
+import Image from "next/image";
 
 const PCRoom1 = () => {
     const [page, setPage] = useState<Data[]>();
@@ -27,6 +28,20 @@ const PCRoom1 = () => {
   return (
     <main
     className='PC__page'>
+        <Image
+            height={0}
+            width={0}
+            src={'https://images.unsplash.com/photo-1676049272574-ad8693a90d38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2158&q=80'
+            }
+            alt='Image of Contemporary art gallery'
+            style={{
+                position: 'fixed',
+                right: '0',
+                bottom: '0',
+                minWidth: '100%',
+                minHeight: '100%',
+                zIndex: '-1'
+            }}/>
       <Box
       display={'flex'}
       justifyContent={'center'}
