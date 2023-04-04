@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Data } from '@/app/(Interfaces)/interfaces';
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
 import Artworks from '@/app/(Components)/Artworks';
-import { ArrowBackIos, ArrowForwardIos, North, NorthEast, NorthWest, South, SouthEast, SouthWest } from '@mui/icons-material';
+import { ArrowForwardIos, North, NorthEast, NorthWest, South, SouthEast, SouthWest } from '@mui/icons-material';
 import {useRouter} from 'next/navigation';
 import Image from 'next/image';
 
@@ -26,46 +26,12 @@ const Textiles = () => {
 
 return (  
   <main
-  className='PC__page'>
-
-<Box
-sx={{position: 'absolute',
-top: '108%',
-flexDirection: 'row',
-width: '100vw',
-display: 'flex',
-alignItems: 'center',
-justifyContent: 'flex-start'}}>
-<IconButton
-sx={{color: 'white',
-position:'absolute'}}
-onClick={() => router.push('/PC-13')}>
-  <ArrowBackIos
-  sx={{fontSize: 'xxx-large'}}/>
-</IconButton>
-</Box>
-
-<Box
-sx={{position: 'absolute',
-top: '108%',
-flexDirection: 'row',
-width: '100vw',
-display: 'flex',
-alignItems: 'center',
-justifyContent: 'flex-end'}}>
-<IconButton
-sx={{color: 'white',
-position:'absolute'}}
-onClick={() => router.push('/')}>
-  <ArrowForwardIos
-  sx={{fontSize: 'xxx-large'}}/>
-</IconButton>
-</Box>
+  className='PC__page'>=
 
 <Image
     height={0}
     width={0}
-    src={'https://images.pexels.com/photos/1839919/pexels-photo-1839919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    src={'https://images.unsplash.com/photo-1581508512961-0e3b9524db40?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80'
     }
     alt='Image of a museum gallery'
     style={{
@@ -118,12 +84,28 @@ sx={{position: 'absolute',
 flexDirection: 'row',
 width: '100vw',
 display: 'flex',
+alignContent: 'flex-end',
+justifyContent: 'flex-end'}}>
+<IconButton
+sx={{color: 'white',
+position:'absolute'}}
+onClick={() => router.push('/PC-14/Room1')}>
+  <SouthEast  
+  sx={{fontSize: 'xxx-large'}}/>
+</IconButton>
+</Box>
+
+<Box
+sx={{position: 'absolute',
+flexDirection: 'row',
+width: '100vw',
+display: 'flex',
 alignContent: 'flex-start',
 justifyContent: 'flex-start'}}>
 <IconButton
 sx={{color: 'white',
 position:'absolute'}}
-onClick={() => router.push('/PC-14/Room1')}>
+onClick={() => router.push('/PC-14/Room4')}>
   <SouthWest 
   sx={{fontSize: 'xxx-large'}}/>
 </IconButton>

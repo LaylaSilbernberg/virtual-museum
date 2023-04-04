@@ -27,6 +27,21 @@ const Textiles = () => {
 return (  
   <main
   className='PC__page'>
+<Box
+sx={{position: 'absolute',
+flexDirection: 'row',
+width: '100vw',
+display: 'flex',
+alignContent: 'flex-end',
+justifyContent: 'flex-end'}}>
+<IconButton
+sx={{color: 'white',
+position:'absolute'}}
+onClick={() => router.push('/PC-14/Room2')}>
+  <NorthEast  
+  sx={{fontSize: 'xxx-large'}}/>
+</IconButton>
+</Box>
 
 <Box
 sx={{position: 'absolute',
@@ -39,25 +54,8 @@ justifyContent: 'flex-start'}}>
 <IconButton
 sx={{color: 'white',
 position:'absolute'}}
-onClick={() => router.push('/PC-13')}>
+onClick={() => router.push('/PC-14')}>
   <ArrowBackIos
-  sx={{fontSize: 'xxx-large'}}/>
-</IconButton>
-</Box>
-
-<Box
-sx={{position: 'absolute',
-top: '108%',
-flexDirection: 'row',
-width: '100vw',
-display: 'flex',
-alignItems: 'center',
-justifyContent: 'flex-end'}}>
-<IconButton
-sx={{color: 'white',
-position:'absolute'}}
-onClick={() => router.push('/')}>
-  <ArrowForwardIos
   sx={{fontSize: 'xxx-large'}}/>
 </IconButton>
 </Box>
@@ -65,7 +63,7 @@ onClick={() => router.push('/')}>
 <Image
     height={0}
     width={0}
-    src={'https://images.pexels.com/photos/1839919/pexels-photo-1839919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    src={'https://images.unsplash.com/photo-1541689507962-7658adb8aa70?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2751&q=80'
     }
     alt='Image of a museum gallery'
     style={{
@@ -86,10 +84,10 @@ onClick={() => router.push('/')}>
     padding: '1rem 1.25rem',
     color: 'white'}}>
       <Typography
-      sx={{borderBottom:'solid black 0.125rem'}}
+      sx={{borderBottom:'solid white 0.125rem'}}
       variant='h2'><Link
       style={{textDecoration: 'none',
-    color: 'black'}}
+    color: 'white'}}
        href={'/PC-14'}> Prints and Drawings
        </Link>
        </Typography>
@@ -118,13 +116,13 @@ sx={{position: 'absolute',
 flexDirection: 'row',
 width: '100vw',
 display: 'flex',
-alignContent: 'flex-start',
-justifyContent: 'flex-start'}}>
+alignContent: 'flex-end',
+justifyContent: 'flex-end'}}>
 <IconButton
 sx={{color: 'white',
 position:'absolute'}}
-onClick={() => router.push('/PC-14/Room1')}>
-  <SouthWest 
+onClick={() => router.push('/PC-14/Room3')}>
+  <SouthEast  
   sx={{fontSize: 'xxx-large'}}/>
 </IconButton>
 </Box>
