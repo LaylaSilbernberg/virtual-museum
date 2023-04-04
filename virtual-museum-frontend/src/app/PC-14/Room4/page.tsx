@@ -54,7 +54,7 @@ justifyContent: 'flex-start'}}>
 <IconButton
 sx={{color: 'white',
 position:'absolute'}}
-onClick={() => router.push('/PC-14')}>
+onClick={() => router.push('/')}>
   <ArrowBackIos
   sx={{fontSize: 'xxx-large'}}/>
 </IconButton>
