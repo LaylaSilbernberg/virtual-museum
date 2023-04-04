@@ -66,10 +66,10 @@ position:'absolute'}}
       padding: '1rem 1.25rem',
       color: 'white'}}>
         <Typography
-        sx={{borderBottom:'solid black 0.125rem'}}
+        sx={{borderBottom:'solid white 0.125rem'}}
         variant='h2'><Link
         style={{textDecoration: 'none',
-      color: 'black'}}
+      color: 'white'}}
          href={'/PC-12'}> Photography
          </Link>
          </Typography>
@@ -77,7 +77,7 @@ position:'absolute'}}
                 <Grid container
           className='gallery__grid'
         >
-          {page?.map((element) => {
+          {page?.filter((element) => element.image_id).map((element) => {
             return <Artworks
               key={element.id}
               id={52}

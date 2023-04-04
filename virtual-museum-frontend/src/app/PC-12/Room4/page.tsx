@@ -29,7 +29,7 @@ const PhotographyAndMediaRoom4 = () => {
                   <Image
       height={0}
       width={0}
-      src={'https://images.unsplash.com/photo-1566654032194-09ec2c9c5d2f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2064&q=80'
+      src={'https://images.unsplash.com/photo-1507643179773-3e975d7ac515?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
       }
       alt='Image of a gallery with a classical statue front and center'
       style={{
@@ -65,10 +65,10 @@ position:'absolute'}}
       padding: '1rem 1.25rem',
       color: 'white'}}>
         <Typography
-        sx={{borderBottom:'solid black 0.125rem'}}
+        sx={{borderBottom:'solid white 0.125rem'}}
         variant='h2'><Link
         style={{textDecoration: 'none',
-      color: 'black'}}
+      color: 'white'}}
          href={'/PC-12'}> Photography
          </Link>
          </Typography>
@@ -93,7 +93,7 @@ position:'absolute'}}
                 <Grid container
           className='gallery__grid'
         >
-          {page?.map((element) => {
+          {page?.filter((element) => element.image_id).map((element) => {
             return <Artworks
               key={element.id}
               id={52}
