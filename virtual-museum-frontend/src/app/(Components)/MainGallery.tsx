@@ -29,7 +29,7 @@ position:'absolute'}}
         <Grid container
           className='gallery__grid'
         >
-          {pageData?.map((element) => {
+          {pageData?.filter((element) => element.image_id).map((element) => {
             return <Artworks
               key={element.id}
               id={52}

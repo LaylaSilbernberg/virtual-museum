@@ -4,11 +4,11 @@ import React, { useEffect, useState } from 'react'
 import { Data } from '@/app/(Interfaces)/interfaces';
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
 import Artworks from '@/app/(Components)/Artworks';
-import { ArrowBackIos, ArrowForwardIos, North, NorthEast, NorthWest, South, SouthEast, SouthWest } from '@mui/icons-material';
+import { ArrowForwardIos, North, NorthEast, NorthWest, South, SouthEast, SouthWest } from '@mui/icons-material';
 import {useRouter} from 'next/navigation';
 import Image from 'next/image';
 
-const Textiles = () => {
+const TextilesRoom1 = () => {
   const [page, setPage] = useState<Data[]>();
   const router = useRouter();
 
@@ -27,37 +27,50 @@ const Textiles = () => {
 return (  
   <main
   className='PC__page'>
-
 <Box
 sx={{position: 'absolute',
-top: '108%',
 flexDirection: 'row',
 width: '100vw',
 display: 'flex',
-alignItems: 'center',
-justifyContent: 'flex-start'}}>
+alignContent: 'flex-end',
+justifyContent: 'flex-end'}}>
 <IconButton
 sx={{color: 'white',
 position:'absolute'}}
-onClick={() => router.push('/PC-13')}>
-  <ArrowBackIos
+onClick={() => router.push('/PC-14')}>
+  <NorthEast  
   sx={{fontSize: 'xxx-large'}}/>
 </IconButton>
 </Box>
 
 <Box
 sx={{position: 'absolute',
-top: '108%',
 flexDirection: 'row',
 width: '100vw',
 display: 'flex',
-alignItems: 'center',
+alignContent: 'flex-start',
+justifyContent: 'flex-start'}}>
+<IconButton
+sx={{color: 'white',
+position:'absolute'}}
+onClick={() => router.push('/PC-14/Room2')}>
+  <NorthWest 
+  sx={{fontSize: 'xxx-large'}}/>
+</IconButton>
+</Box>
+
+<Box
+sx={{position: 'absolute',
+flexDirection: 'row',
+width: '100vw',
+display: 'flex',
+alignContent: 'flex-end',
 justifyContent: 'flex-end'}}>
 <IconButton
 sx={{color: 'white',
 position:'absolute'}}
-onClick={() => router.push('/')}>
-  <ArrowForwardIos
+onClick={() => router.push('/PC-14')}>
+  <NorthEast
   sx={{fontSize: 'xxx-large'}}/>
 </IconButton>
 </Box>
@@ -65,7 +78,7 @@ onClick={() => router.push('/')}>
 <Image
     height={0}
     width={0}
-    src={'https://images.pexels.com/photos/1839919/pexels-photo-1839919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    src={'https://images.pexels.com/photos/1604991/pexels-photo-1604991.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     }
     alt='Image of a museum gallery'
     style={{
@@ -86,10 +99,10 @@ onClick={() => router.push('/')}>
     padding: '1rem 1.25rem',
     color: 'white'}}>
       <Typography
-      sx={{borderBottom:'solid black 0.125rem'}}
+      sx={{borderBottom:'solid white 0.125rem'}}
       variant='h2'><Link
       style={{textDecoration: 'none',
-    color: 'black'}}
+    color: 'white'}}
        href={'/PC-14'}> Prints and Drawings
        </Link>
        </Typography>
@@ -123,7 +136,7 @@ justifyContent: 'flex-start'}}>
 <IconButton
 sx={{color: 'white',
 position:'absolute'}}
-onClick={() => router.push('/PC-14/Room1')}>
+onClick={() => router.push('/PC-14/Room3')}>
   <SouthWest 
   sx={{fontSize: 'xxx-large'}}/>
 </IconButton>
@@ -132,4 +145,4 @@ onClick={() => router.push('/PC-14/Room1')}>
   </main>
 )
 }
-export default Textiles
+export default TextilesRoom1

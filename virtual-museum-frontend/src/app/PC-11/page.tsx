@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Data } from '../(Interfaces)/interfaces';
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
 import Artworks from '../(Components)/Artworks';
-import { Height, NorthEast, South, West } from '@mui/icons-material';
+import { ArrowBackIos, ArrowForwardIos, Height, NorthEast, South, West } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import Image from "next/image";
 
@@ -41,6 +41,40 @@ const ModernArt = () => {
         minHeight: '100%',
         zIndex: '-1'
       }}/>
+
+<Box
+sx={{position: 'absolute',
+top: '108%',
+flexDirection: 'row',
+width: '100vw',
+display: 'flex',
+alignItems: 'center',
+justifyContent: 'flex-start'}}>
+<IconButton
+sx={{color: 'white',
+position:'absolute'}}
+onClick={() => router.push('/PC-10')}>
+  <ArrowBackIos
+  sx={{fontSize: 'xxx-large'}}/>
+</IconButton>
+</Box>
+
+<Box
+sx={{position: 'absolute',
+top: '108%',
+flexDirection: 'row',
+width: '100vw',
+display: 'flex',
+alignItems: 'center',
+justifyContent: 'flex-end'}}>
+<IconButton
+sx={{color: 'white',
+position:'absolute'}}
+onClick={() => router.push('/PC-12')}>
+  <ArrowForwardIos
+  sx={{fontSize: 'xxx-large'}}/>
+</IconButton>
+</Box>
                       <Box
   sx={{position: 'absolute',
   top: '13.5%',
@@ -103,23 +137,6 @@ position:'absolute'}}
 position:'absolute'}}
   onClick={() => router.push('/PC-11/Room2')}>
     <South
-    sx={{fontSize: 'xxx-large'}}/>
-  </IconButton>
-  </Box>
-  <Box
-  sx={{position: 'absolute',
-  top:'95%',
- transform: 'translate(0%, 115%)',
-  flexDirection: 'row',
-  width: '100vw',
-  display: 'flex',
-  alignItems: 'center',
-  alignContent: 'flex-start',
-  justifyContent: 'flex-start'}}>
-  <IconButton
-  sx={{color: 'white'}}
-  onClick={() => router.back()}>
-    <West
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
   </Box>

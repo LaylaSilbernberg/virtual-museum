@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Data } from '../(Interfaces)/interfaces';
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
 import Artworks from '../(Components)/Artworks';
-import { SouthEast } from '@mui/icons-material';
+import { ArrowBackIos, ArrowForwardIos, SouthEast } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image'
 
@@ -33,7 +33,7 @@ const PrintsAndDrawings = () => {
       width={0}
       src={'https://images.unsplash.com/photo-1452533006997-88feb60941a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80'
       }
-      alt='Image of a gallery with a classical statue front and center'
+      alt='Image of a museum gallery'
       style={{
         position: 'fixed',
         right: '0',
@@ -42,6 +42,40 @@ const PrintsAndDrawings = () => {
         minHeight: '100%',
         zIndex: '-1'
       }}/>
+
+<Box
+sx={{position: 'absolute',
+top: '108%',
+flexDirection: 'row',
+width: '100vw',
+display: 'flex',
+alignItems: 'center',
+justifyContent: 'flex-start'}}>
+<IconButton
+sx={{color: 'white',
+position:'absolute'}}
+onClick={() => router.push('/PC-12')}>
+  <ArrowBackIos
+  sx={{fontSize: 'xxx-large'}}/>
+</IconButton>
+</Box>
+
+<Box
+sx={{position: 'absolute',
+top: '108%',
+flexDirection: 'row',
+width: '100vw',
+display: 'flex',
+alignItems: 'center',
+justifyContent: 'flex-end'}}>
+<IconButton
+sx={{color: 'white',
+position:'absolute'}}
+onClick={() => router.push('/PC-14')}>
+  <ArrowForwardIos
+  sx={{fontSize: 'xxx-large'}}/>
+</IconButton>
+</Box>
 
 <Box
       display={'flex'}

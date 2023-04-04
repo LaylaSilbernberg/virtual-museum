@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Data } from '@/app/(Interfaces)/interfaces';
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
 import Artworks from '@/app/(Components)/Artworks';
-import { ArrowBackIos, ArrowForwardIos, North, NorthEast, NorthWest, South, SouthEast, SouthWest } from '@mui/icons-material';
+import { ArrowForwardIos, North, NorthEast, NorthWest, South, SouthEast, SouthWest } from '@mui/icons-material';
 import {useRouter} from 'next/navigation';
 import Image from 'next/image';
 
@@ -27,45 +27,43 @@ const Textiles = () => {
 return (  
   <main
   className='PC__page'>
-
 <Box
 sx={{position: 'absolute',
-top: '108%',
 flexDirection: 'row',
 width: '100vw',
 display: 'flex',
-alignItems: 'center',
-justifyContent: 'flex-start'}}>
-<IconButton
-sx={{color: 'white',
-position:'absolute'}}
-onClick={() => router.push('/PC-13')}>
-  <ArrowBackIos
-  sx={{fontSize: 'xxx-large'}}/>
-</IconButton>
-</Box>
-
-<Box
-sx={{position: 'absolute',
-top: '108%',
-flexDirection: 'row',
-width: '100vw',
-display: 'flex',
-alignItems: 'center',
+alignContent: 'flex-end',
 justifyContent: 'flex-end'}}>
 <IconButton
 sx={{color: 'white',
 position:'absolute'}}
-onClick={() => router.push('/')}>
-  <ArrowForwardIos
+onClick={() => router.push('/PC-14/Room1')}>
+  <NorthEast  
   sx={{fontSize: 'xxx-large'}}/>
 </IconButton>
 </Box>
 
+<Box
+sx={{position: 'absolute',
+flexDirection: 'row',
+width: '100vw',
+display: 'flex',
+alignContent: 'flex-start',
+justifyContent: 'flex-start'}}>
+<IconButton
+sx={{color: 'white',
+position:'absolute'}}
+onClick={() => router.push('/PC-14/Room4')}>
+  <NorthWest  
+  sx={{fontSize: 'xxx-large'}}/>
+</IconButton>
+</Box>
+
+
 <Image
     height={0}
     width={0}
-    src={'https://images.pexels.com/photos/1839919/pexels-photo-1839919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+    src={'https://images.pexels.com/photos/1674049/pexels-photo-1674049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
     }
     alt='Image of a museum gallery'
     style={{
@@ -86,10 +84,10 @@ onClick={() => router.push('/')}>
     padding: '1rem 1.25rem',
     color: 'white'}}>
       <Typography
-      sx={{borderBottom:'solid black 0.125rem'}}
+      sx={{borderBottom:'solid white 0.125rem'}}
       variant='h2'><Link
       style={{textDecoration: 'none',
-    color: 'black'}}
+    color: 'white'}}
        href={'/PC-14'}> Prints and Drawings
        </Link>
        </Typography>
@@ -112,22 +110,6 @@ onClick={() => router.push('/')}>
             image_id={element.image_id} />;
         })}
       </Grid>
-
-      <Box
-sx={{position: 'absolute',
-flexDirection: 'row',
-width: '100vw',
-display: 'flex',
-alignContent: 'flex-start',
-justifyContent: 'flex-start'}}>
-<IconButton
-sx={{color: 'white',
-position:'absolute'}}
-onClick={() => router.push('/PC-14/Room1')}>
-  <SouthWest 
-  sx={{fontSize: 'xxx-large'}}/>
-</IconButton>
-</Box>
       
   </main>
 )

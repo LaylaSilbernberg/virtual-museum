@@ -31,7 +31,7 @@ const PhotographyAndMediaRoom3 = () => {
       width={0}
       src={'https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80'
       }
-      alt='Image of a gallery with a classical statue front and center'
+      alt='Image of a museum gallery'
       style={{
         position: 'fixed',
         right: '0',

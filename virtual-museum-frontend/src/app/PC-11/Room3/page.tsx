@@ -32,7 +32,7 @@ const ModernArtRoom1 = () => {
       width={0}
       src={'https://images.unsplash.com/photo-1547617401-3d15954a612d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'
       }
-      alt='Image of a gallery with a classical statue front and center'
+      alt='Image of a museum gallery'
       style={{
         position: 'fixed',
         right: '0',
