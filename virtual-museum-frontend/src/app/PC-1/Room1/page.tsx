@@ -2,8 +2,10 @@
 
 import Artworks from '@/app/(Components)/Artworks';
 import { Data } from '@/app/(Interfaces)/interfaces';
-import { Box, Grid, Typography } from '@mui/material';
+import { ArrowForwardIos } from '@mui/icons-material';
+import { Box, Grid, IconButton, Typography } from '@mui/material';
 import Link from 'next/link';
+import router from 'next/router';
 import React, { useEffect, useState } from 'react'
 
 const PCRoom1 = () => {
@@ -24,6 +26,23 @@ const PCRoom1 = () => {
   return (
     <main
     className='PC__page'>
+                <Box
+  sx={{position: 'sticky',
+  flexDirection: 'row',
+  width: '100vw',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  top: '50%'}}>
+  <IconButton
+  sx={{color: 'white',
+position:'absolute'}}
+  size='large'
+  onClick={() => router.push('/PC-11/Room1')}>
+    <ArrowForwardIos
+    fontSize='inherit'/>
+  </IconButton>
+  </Box>
       <Box
       display={'flex'}
       justifyContent={'center'}

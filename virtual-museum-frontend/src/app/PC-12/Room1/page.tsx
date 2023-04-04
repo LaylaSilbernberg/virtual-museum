@@ -1,14 +1,14 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import { Data } from '../(Interfaces)/interfaces';
+import { Data } from '@/app/(Interfaces)/interfaces';
 import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
-import Artworks from '../(Components)/Artworks';
-import { SouthEast } from '@mui/icons-material';
+import Artworks from '@/app/(Components)/Artworks';
+import { East, NorthEast, NorthWest, SouthEast, SouthWest, West } from '@mui/icons-material';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image'
+import Image from 'next/image';
 
-const PrintsAndDrawings = () => {
+const PhotographyAndMediaRoom1 = () => {
     const [page, setPage] = useState<Data[]>();
     const router = useRouter();
 
@@ -16,23 +16,20 @@ const PrintsAndDrawings = () => {
         const limit=16;
         const maxPages=62;
         const fields = "id,title,place_of_origin,department_title,thumbnail,department_id,artist_display,image_id";
-        const url = `https://api.artic.edu/api/v1/artworks/search?q=Prints And Drawings&fields=${fields}&limit=${limit}&page=${Math.floor(Math.random() * maxPages)}`;
+        const url = `https://api.artic.edu/api/v1/artworks/search?q=Photography And Media&fields=${fields}&limit=${limit}&page=${Math.floor(Math.random() * maxPages)}`;
 
         const result = await (await fetch(url)).json();
         setPage(result.data)
     }
 
     useEffect(() => {getSpecificDepartment()}, [])
-
-  return (  
+  return (
     <main
     className='PC__page'>
-
-<Image
+                  <Image
       height={0}
       width={0}
-      src={'https://images.unsplash.com/photo-1452533006997-88feb60941a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80'
-      }
+      src={'https://images.unsplash.com/photo-1647089490916-b127d4048332?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80'}
       alt='Image of a gallery with a classical statue front and center'
       style={{
         position: 'fixed',
@@ -42,8 +39,7 @@ const PrintsAndDrawings = () => {
         minHeight: '100%',
         zIndex: '-1'
       }}/>
-
-<Box
+        <Box
       display={'flex'}
       justifyContent={'center'}
       sx={{
@@ -56,11 +52,45 @@ const PrintsAndDrawings = () => {
         variant='h2'><Link
         style={{textDecoration: 'none',
       color: 'white'}}
-         href={'/PC-13'}> Prints and Drawings
+         href={'/PC-12'}> Photography
          </Link>
          </Typography>
       </Box>
+                          <Box
+  sx={{position: 'absolute',
+  top: '108%',
+  flexDirection: 'row',
+  width: '100vw',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-start'}}>
+  <IconButton
+  sx={{color: 'white',
+position:'absolute'}}
+  onClick={() => router.push('/PC-12')}>
+    <West
+    sx={{fontSize: 'xxx-large'}}/>
+  </IconButton>
+  </Box>
+
+  <Box
+  sx={{position: 'absolute',
+  flexDirection: 'row',
+  width: '100vw',
+  display: 'flex',
+  alignItems: 'flex-end',
+  justifyContent: 'flex-end'}}>
+  <IconButton
+  sx={{color: 'white',
+position:'absolute'}}
+  onClick={() => router.push('/PC-12/Room2')}>
+    <NorthEast
+    sx={{fontSize: 'xxx-large'}}/>
+  </IconButton>
+  </Box>
+
                 <Grid container
+                sx={{marginBottom: '3rem'}}
           className='gallery__grid'
         >
           {page?.filter((element) => element.image_id).map((element) => {
@@ -76,25 +106,23 @@ const PrintsAndDrawings = () => {
               image_id={element.image_id} />;
           })}
         </Grid>
-
         <Box
   sx={{position: 'absolute',
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
-  alignContent: 'flex-end',
+  alignItems: 'flex-end',
   justifyContent: 'flex-end'}}>
   <IconButton
   sx={{color: 'white',
 position:'absolute'}}
-  onClick={() => router.push('/PC-13/Room1')}>
+  onClick={() => router.push('/PC-12/Room3')}>
     <SouthEast
     sx={{fontSize: 'xxx-large'}}/>
   </IconButton>
   </Box>
-        
     </main>
   )
 }
 
-export default PrintsAndDrawings
+export default PhotographyAndMediaRoom1
