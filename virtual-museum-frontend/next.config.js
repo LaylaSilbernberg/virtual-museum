@@ -3,12 +3,6 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-      protocol: 'https',
-      hostname: 'images.unsplash.com',
-      port: '',
-      pathname: '/**',
-    },
-      {
         protocol: 'https',
         hostname: 'www.artic.edu',
         port: '',
@@ -20,10 +14,18 @@ const nextConfig = {
         port: '',
         pathname: '/photos/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   experimental: {
     appDir: true,
   },
+
+  
 }
 module.exports = nextConfig

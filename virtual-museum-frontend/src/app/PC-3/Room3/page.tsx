@@ -2,7 +2,7 @@
 
 import Artworks from '@/app/(Components)/Artworks';
 import { Data } from '@/app/(Interfaces)/interfaces';
-import { East, NorthEast, West } from '@mui/icons-material';
+import { ArrowForwardIos, East, NorthEast, West } from '@mui/icons-material';
 import { Box, Grid, IconButton, Typography } from '@mui/material';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
@@ -15,7 +15,7 @@ const PCRoom1 = () => {
         const limit=16;
         const maxPages=62;
         const fields = "id,title,place_of_origin,department_title,thumbnail,department_id,artist_display,image_id";
-        const url = `https://api.artic.edu/api/v1/artworks/search?q=Arts Of Africa&fields=${fields}&limit=${limit}&page=${Math.floor(Math.random() * maxPages)}`;
+        const url = `https://api.artic.edu/api/v1/artworks/search?q=Arts Of The Americas&fields=${fields}&limit=${limit}&page=${Math.floor(Math.random() * maxPages)}`;
 
         const result = await (await fetch(url)).json();
         setPage(result.data)
@@ -24,11 +24,11 @@ const PCRoom1 = () => {
     useEffect(() => {getSpecificDepartment()}, [])
 const router = useRouter();
   return (
-  
+
     <><Image
       height={0}
       width={0}
-      src={'  https://images.pexels.com/photos/1049500/pexels-photo-1049500.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
+      src={'https://images.pexels.com/photos/5876672/pexels-photo-5876672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
       alt='Image of a gallery with a classical statue front and center'
       style={{
         position: 'fixed',
@@ -55,8 +55,7 @@ const router = useRouter();
                 textDecoration: 'none',
                 color: 'white'
               }}
-              href={'/PC-1'}>Arts of Africa</Link></Typography>
-
+              href={'/PC-3'}>Arts Of The Americas</Link></Typography>
 
           <Box
             sx={{
@@ -74,12 +73,12 @@ const router = useRouter();
                 position: 'absolute', fontSize: 'xxx-large'
               }}
               size='large'
-              onClick={() => router.push('/PC-1')}>
+              onClick={() => router.push('/PC-3/Room2')}>
               <West
                 fontSize='inherit' />
             </IconButton>
-          </Box>
 
+          </Box>
           <Box
             sx={{
               position: 'absolute',
@@ -88,7 +87,7 @@ const router = useRouter();
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'flex-end',
-              top: '13.5vh'
+              top: '90vh'
             }}>
             <IconButton
               sx={{
@@ -96,13 +95,11 @@ const router = useRouter();
                 position: 'absolute', fontSize: 'xxx-large'
               }}
               size='large'
-              onClick={() => router.push('/PC-1/Room3')}>
-              <NorthEast
+              onClick={() => router.push('/PC-4')}>
+              <ArrowForwardIos
                 fontSize='inherit' />
             </IconButton>
           </Box>
-
-
         </Box>
         <Grid container
           className='gallery__grid'

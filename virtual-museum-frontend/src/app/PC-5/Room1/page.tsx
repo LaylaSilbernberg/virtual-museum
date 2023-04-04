@@ -1,16 +1,17 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { Data } from '../(Interfaces)/interfaces';
-import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
-import Artworks from '../(Components)/Artworks';
-import Image from 'next/image'
-import { ArrowBackIos, ArrowForwardIos, NorthWest } from '@mui/icons-material';
+import Artworks from '@/app/(Components)/Artworks';
+import { Data } from '@/app/(Interfaces)/interfaces';
+import { ArrowForwardIos, East, NorthEast, SouthEast, SouthWest, West } from '@mui/icons-material';
+import { Box, Grid, IconButton, Typography } from '@mui/material';
+import Link from 'next/link';
 import {useRouter} from 'next/navigation';
-const ArchitectureAndDesign = () => {
+import React, { useEffect, useState } from 'react'
+import Image from 'next/image';
+const PCRoom1 = () => {
     const [page, setPage] = useState<Data[]>();
-    const router = useRouter();
-    const getSpecificDepartment = async() => {
+
+    const getSpecificDepartment = async() => { 
         const limit=16;
         const maxPages=62;
         const fields = "id,title,place_of_origin,department_title,thumbnail,department_id,artist_display,image_id";
@@ -21,11 +22,12 @@ const ArchitectureAndDesign = () => {
     }
 
     useEffect(() => {getSpecificDepartment()}, [])
-
+const router = useRouter();
   return (
+    <main
+    className='PC__page'>
 
-    <>
-       <Box
+    <Box
           display={'flex'}
           justifyContent={'center'}
           sx={{
@@ -43,54 +45,7 @@ const ArchitectureAndDesign = () => {
               }}
               href={'/PC-5'}>Architecture and Design</Link></Typography>
         </Box>
-  
-  
-        <Box
-            sx={{
-              position: 'absolute',
-              flexDirection: 'row',
-              width: '100vw',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              top: '13.5vh'
-            }}>
-            <IconButton
-              sx={{
-                color: 'white',
-                position: 'absolute', fontSize: 'xxx-large'
-              }}
-              size='large'
-              onClick={() => router.push('/PC-5/Room1')}>
-              <NorthWest
-                fontSize='inherit' />
-            </IconButton>
-          </Box>
 
-
-
-
-        <Box
-          sx={{
-            position: 'absolute',
-            flexDirection: 'row',
-            width: '100vw',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-            top: '90vh'
-          }}>
-          <IconButton
-            sx={{
-              color: 'white',
-              position: 'absolute', fontSize: 'xxx-large'
-            }}
-            size='large'
-            onClick={() => router.push('/PC-4')}>
-            <ArrowBackIos
-              fontSize='inherit' />
-          </IconButton>
-        </Box>
         <Box
           sx={{
             position: 'absolute',
@@ -99,7 +54,7 @@ const ArchitectureAndDesign = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-end',
-            top: '90vh'
+            top: '13.5vh'
           }}>
           <IconButton
             sx={{
@@ -107,17 +62,17 @@ const ArchitectureAndDesign = () => {
               position: 'absolute', fontSize: 'xxx-large'
             }}
             size='large'
-            onClick={() => router.push('/PC-7')}>
-            <ArrowForwardIos
+            onClick={() => router.push('/PC-5/Room2')}>
+            <East
               fontSize='inherit' />
           </IconButton>
         </Box>
 
 
-    <Image
+<Image
       height={0}
       width={0}
-      src={'https://images.pexels.com/photos/618079/pexels-photo-618079.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
+      src={'https://images.pexels.com/photos/3312671/pexels-photo-3312671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
       alt='Image of a gallery with a classical statue front and center'
       style={{
         position: 'fixed',
@@ -126,12 +81,14 @@ const ArchitectureAndDesign = () => {
         minWidth: '100%',
         minHeight: '100%',
         zIndex: '-1'
-      }} /><main
-        className='PC__page'>
-        <Grid container
+      }} />
+     
+                <Grid container
           className='gallery__grid'
         >
-          {page?.filter((element) => element.image_id).map((element) => {
+
+          
+          {page?.filter((element) => element.image_id).map((element)=>  {
             return <Artworks
               key={element.id}
               id={52}
@@ -144,8 +101,29 @@ const ArchitectureAndDesign = () => {
               image_id={element.image_id} />;
           })}
         </Grid>
-      </main></>
+
+        <Box
+          sx={{
+            position: 'absolute',
+            flexDirection: 'row',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+          }}>
+          <IconButton
+            sx={{
+              color: 'white',
+              position: 'absolute', fontSize: 'xxx-large'
+            }}
+            size='large'
+            onClick={() => router.push('/PC-5')}>
+            <SouthEast
+              fontSize='inherit' />
+          </IconButton>
+        </Box>
+    </main>
   )
 }
 
-export default ArchitectureAndDesign
+export default PCRoom1

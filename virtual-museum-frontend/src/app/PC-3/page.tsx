@@ -2,10 +2,16 @@
 
 import React, { useEffect, useState } from 'react'
 import { Data } from '../(Interfaces)/interfaces';
-import { Grid } from '@mui/material';
+import { Box, Grid, IconButton, Link, Typography } from '@mui/material';
 import Artworks from '../(Components)/Artworks';
+import { ArrowBackIos, ArrowForwardIos, East, NorthEast } from '@mui/icons-material';
+import {useRouter} from 'next/navigation';
+import Image from 'next/image';
+
+
 
 const ArtsOfTheAmericas = () => {
+  const router = useRouter();
     const [page, setPage] = useState<Data[]>();
 
     const getSpecificDepartment = async() => {
@@ -21,12 +27,114 @@ const ArtsOfTheAmericas = () => {
     useEffect(() => {getSpecificDepartment()}, [])
 
   return (
-    <main
-    className='PC__page'>
-                <Grid container
+    
+
+    <><Image
+      height={0}
+      width={0}
+      src={'https://images.pexels.com/photos/2882603/pexels-photo-2882603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'}
+      alt='Image of a gallery with a classical statue front and center'
+      style={{
+        position: 'fixed',
+        right: '0',
+        bottom: '0',
+        minWidth: '100%',
+        minHeight: '100%',
+        zIndex: '-1'
+      }} /><main
+        className='PC__page'>
+
+
+        <Box
+          display={'flex'}
+          justifyContent={'center'}
+          sx={{
+            textTransform: 'uppercase',
+            letterSpacing: '0.15em',
+            padding: '1rem 1.25rem',
+            color: 'white'
+          }}>
+          <Typography
+            sx={{ borderBottom: 'solid white 0.125rem' }}
+            variant='h2'><Link
+              style={{
+                textDecoration: 'none',
+                color: 'white'
+              }}
+              href={'/PC-3'}>Arts of The Americas</Link></Typography>
+        </Box>
+
+        <Box
+          sx={{
+            position: 'absolute',
+            flexDirection: 'row',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            top: '13.5vh'
+          }}>
+          <IconButton
+            sx={{
+              color: 'white',
+              position: 'absolute', fontSize: 'xxx-large'
+            }}
+            size='large'
+            onClick={() => router.push('/PC-3/Room2')}>
+            <NorthEast
+              fontSize='inherit' />
+          </IconButton>
+        </Box>
+        <Box
+          sx={{
+            position: 'absolute',
+            flexDirection: 'row',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            top: '90vh'
+          }}>
+          <IconButton
+            sx={{
+              color: 'white',
+              position: 'absolute', fontSize: 'xxx-large'
+            }}
+            size='large'
+            onClick={() => router.push('/PC-4')}>
+            <ArrowForwardIos
+              fontSize='inherit' />
+          </IconButton>
+        </Box>
+
+
+
+        <Box
+          sx={{
+            position: 'absolute',
+            flexDirection: 'row',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            top: '90vh'
+          }}>
+          <IconButton
+            sx={{
+              color: 'white',
+              position: 'absolute', fontSize: 'xxx-large'
+            }}
+            size='large'
+            onClick={() => router.push('/PC-1')}>
+            <ArrowBackIos
+              fontSize='inherit' />
+          </IconButton>
+        </Box>
+
+        <Grid container
           className='gallery__grid'
         >
-          {page?.map((element) => {
+          {page?.filter((element) => element.image_id).map((element)=> {
             return <Artworks
               key={element.id}
               id={52}
@@ -39,7 +147,29 @@ const ArtsOfTheAmericas = () => {
               image_id={element.image_id} />;
           })}
         </Grid>
-    </main>
+
+
+        <Box
+          sx={{
+            position: 'absolute',
+            flexDirection: 'row',
+            width: '100vw',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+          }}>
+          <IconButton
+            sx={{
+              color: 'white',
+              position: 'absolute', fontSize: 'xxx-large'
+            }}
+            size='large'
+            onClick={() => router.push('/PC-3/Room1')}>
+            <East
+              fontSize='inherit' />
+          </IconButton>
+        </Box>
+      </main></>
   )
 }
 
