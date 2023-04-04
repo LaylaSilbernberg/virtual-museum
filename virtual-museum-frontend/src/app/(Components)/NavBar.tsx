@@ -5,6 +5,7 @@ import React from 'react'
 import { AppBar, Box, Container, Stack} from '@mui/material'
 import { maxWidth } from '@mui/system'
 import Image from 'next/image'
+import MenuComponent from './MenuComponent'
 
 const NavBar = () => {
   return (
@@ -40,6 +41,7 @@ const NavBar = () => {
         <Link href={"/"} className="nav__links">Home</Link>
         <Link href={"/about"} className="nav__links">About</Link>
         <Link href={`/personalgallery/52`} className="nav__links">Personal Gallery</Link>
+        <MenuComponent/>
         </Stack>
         </Box>
     </AppBar>
