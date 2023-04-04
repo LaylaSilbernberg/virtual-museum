@@ -135,12 +135,22 @@ body{
     left: 0; 
   }
 
+  .menuitem__navbar{
+    text-decoration: none;
+    color: black;
+  }
+
 @media (min-width:641px) {
     .largeImage__artwork{
         width: 500;
         height: 500;
     }
     .nav__links{
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        padding: 1rem 1.25rem;
+    }
+    #positioned-button{
         text-transform: uppercase;
         letter-spacing: 0.15em;
         padding: 1rem 1.25rem;
