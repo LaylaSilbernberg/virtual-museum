@@ -152,29 +152,6 @@ const ContemporaryArt = () => {
 
             </Box>
 
-            <Box
-                sx={{
-                    position: 'sticky',
-                    flexDirection: 'row',
-                    width: '100vw',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-end',
-                    top: '90%'
-                }}>
-                <IconButton
-                    sx={{
-                        color: 'white',
-                        position: 'absolute', fontSize: 'xxx-large'
-                    }}
-                    size='large'
-                    onClick={() => router.push('/PC-8/Room3')}>
-                    <SouthEast
-                        sx={{fontSize: 'xxx-large'}}/>
-                </IconButton>
-            </Box>
-
-
             <Grid container
                   className='gallery__grid'
             >
@@ -191,6 +168,26 @@ const ContemporaryArt = () => {
                         image_id={element.image_id}/>;
                 })}
             </Grid>
+
+            <Box
+                sx={{
+                    position: 'absolute',
+                    flexDirection: 'row',
+                    width: '100vw',
+                    display: 'flex',
+                    alignContent: 'flex-end',
+                    justifyContent: 'flex-end'}}>
+                <IconButton
+                    sx={{
+                        color: 'white',
+                        position: 'absolute', fontSize: 'xxx-large'
+                    }}
+                    size='large'
+                    onClick={() => router.push('/PC-8/Room3')}>
+                    <SouthEast
+                        sx={{fontSize: 'xxx-large'}}/>
+                </IconButton>
+            </Box>
         </main>
     )
 }
