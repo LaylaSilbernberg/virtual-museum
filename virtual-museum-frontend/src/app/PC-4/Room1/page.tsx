@@ -77,9 +77,6 @@ const router = useRouter();
       color: 'white'}}
          href={'/PC-4'}>Arts of Ancient Mediterranean and Byzantium</Link></Typography>
 
-
-
-
       </Box>
                 <Grid container
           className='gallery__grid'
