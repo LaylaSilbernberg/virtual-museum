@@ -9,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import tetrad.virtualmuseum.DAO.Image;
 import tetrad.virtualmuseum.DAO.Thumbnail;
 import tetrad.virtualmuseum.DTO.ImageDTO;
-import tetrad.virtualmuseum.repository.GalleryRepo;
 import tetrad.virtualmuseum.DAO.Gallery;
-import tetrad.virtualmuseum.repository.ImageRepo;
 import tetrad.virtualmuseum.repository.Repository;
 
 @org.springframework.stereotype.Service
