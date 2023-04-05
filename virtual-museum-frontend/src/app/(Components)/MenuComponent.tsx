@@ -5,7 +5,7 @@ import Link from 'next/link'
 const MenuComponent = () => {
 
   const themes = useTheme()
-  const matches = useMediaQuery(themes.breakpoints.up('xs'));
+  const matches = useMediaQuery(themes.breakpoints.down('sm'));
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -17,13 +17,34 @@ const MenuComponent = () => {
   return (
       <>
         <Button
+        className='departments__button'
           id="positioned-button"
           aria-controls={open ? 'demo-positioned-menu' : undefined}
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
+          style={matches ? {
+            letterSpacing: '0',
+            textTransform: 'none',
+            padding: '0',
+            maxWidth: 'fit-content',
+            minWidth: 'content',
+            fontSize: 'smaller',
+            textAlign: 'center',
+            lineHeight: '1.37em'
+
+          }: {
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          padding: '1rem 1.25rem',
+          textAlign: 'center',
+          lineHeight: '1.37em'
+        }}
           sx={{
-          color: 'white'}}
+          color: 'white',
+        fontSize: 'medium', 
+    width: 'fit-content',
+  height: 'fit-content'}}
         >
           Departments
         </Button>

@@ -26,17 +26,19 @@ const NavBar = () => {
             justifyContent: 'flex-start',
             alignContent: 'center',
             alignItems: 'center',
-            color: 'white'
+            color: 'white',
+            width: '100vw'
           }}
-      maxWidth='xl'
+
       className='link__container'>
         <Image src={'https://upload.wikimedia.org/wikipedia/commons/3/32/Art_Institute_of_Chicago_logo.svg'} width={72} height={72} alt='Art Institute of Chicago logo'/>
         <Stack
         sx={{
           marginLeft: '1rem',
-          columnGap: '1rem'
+          columnGap: '0.5rem'
         }}
         direction={'row'}
+
         className='nav__link-stack'>
         <Link href={"/"} className="nav__links">Home</Link>
         <Link href={"/about"} className="nav__links">About</Link>
