@@ -26,23 +26,6 @@ position:'absolute'}}
     fontSize='inherit'/>
   </IconButton>
   </Box>
-  <Box
-  sx={{position: 'absolute',
-  flexDirection: 'row',
-  width: '100vw',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  top: '50%'}}>
-  <IconButton
-  sx={{color: 'white',
-position:'absolute'}}
-  size='large'
-  onClick={() => router.push('/PC-14')}>
-    <ArrowBackIos
-    fontSize='inherit'/>
-  </IconButton>
-  </Box>
         <Grid container
           className='gallery__grid'
         >
