@@ -4,6 +4,9 @@ import {PersonalArtworkProp} from '../(Props)/props'
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import PersonalPopUp from './PersonalPopUp';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -14,7 +17,7 @@ const PersonalArtworks = ({id, paramId, image_id, title, place_of_origin, artist
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('sm'));
     const video: HTMLVideoElement = document.querySelector(".background__video")!;
-    const url = `http://localhost:8080/api/deleteImage/${paramId}?imageId=${id}`
+    const url = `https://virtualmuseumappreal.azurewebsites.net/api/getGallery/deleteImage/${paramId}?imageId=${id}`
     const router = useRouter();
     const [hideImage, setHideImage] = useState<boolean>(false)
     const [appear, setAppear] = useState<boolean>(false)
@@ -32,8 +35,9 @@ const deleteImage = async() =>{
     headers: {
       'Access-Control-Allow-Origin' : '*'
     }
-  }).then(() => {setHideImage(true)
-    setOpenImage(false)});
+  }).then(() => {setHideImage(true),
+    setOpenImage(false),
+  toast('Image has been deleted')});
 }
 
   return (

@@ -2,6 +2,8 @@ package tetrad.virtualmuseum.repository;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
 import tetrad.virtualmuseum.DAO.Gallery;
 
 import java.util.List;
@@ -23,6 +25,7 @@ public class Repository {
        return galleryRepo.findGalleryById(id);
     }
 
+    @Transactional
     public Gallery save(Gallery gallery) {
         return galleryRepo.save(gallery);
     }
