@@ -42,7 +42,7 @@ const NavBar = () => {
         className='nav__link-stack'>
         <Link href={"/"} test-id='navlink__home' className="nav__links">Home</Link>
         <Link href={"/about"} className="nav__links">About</Link>
-        <Link href={`/personalgallery/52`} className="nav__links">Personal Gallery</Link>
+        <Link href={"/personalgallery"} className="nav__links">Personal Gallery</Link>
         <MenuComponent/>
         </Stack>
         </Box>
