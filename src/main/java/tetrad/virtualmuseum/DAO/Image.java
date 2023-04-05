@@ -2,8 +2,6 @@ package tetrad.virtualmuseum.DAO;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.springframework.lang.Nullable;
-import tetrad.virtualmuseum.DTO.ThumbnailDTO;
 
 @Entity
 @Table(name = "tblImage")

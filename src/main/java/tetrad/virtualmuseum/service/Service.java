@@ -12,17 +12,16 @@ import tetrad.virtualmuseum.DTO.ImageDTO;
 import tetrad.virtualmuseum.repository.GalleryRepo;
 import tetrad.virtualmuseum.DAO.Gallery;
 import tetrad.virtualmuseum.repository.ImageRepo;
+import tetrad.virtualmuseum.repository.Repository;
 
 @org.springframework.stereotype.Service
 public class Service {
 
-    private final GalleryRepo repo;
 
-    private final ImageRepo imageRepo;
+    private final Repository repo;
 
-    public Service(@Autowired GalleryRepo repo, @Autowired ImageRepo imageRepo) {
+    public Service(@Autowired Repository repo) {
         this.repo = repo;
-        this.imageRepo = imageRepo;
     }
 
     public Gallery getGalleryById(Long id){
@@ -52,6 +51,6 @@ public class Service {
     }
 
     public void deleteImageFromGallery(Long id, Long imageId) {
-        imageRepo.deleteById(imageId);
+        repo.deleteImageById(imageId);
     }
 }

@@ -23,8 +23,7 @@ const MenuComponent = () => {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
           sx={{
-          color: 'white',
-          fontSize: 'medium'}}
+          color: 'white'}}
         >
           Departments
         </Button>
