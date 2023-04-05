@@ -1,17 +1,43 @@
+'use client'
+import { Box, Typography } from "@mui/material"
 
 const About = () => {
 
     return (
-        <div>
-            <h1> Welcome to the VIRTUAL MUSEUM </h1>
-            <h2> Mission statement </h2>
-            <h2> History </h2>
-            <h2> Collections </h2>
-            <h2> Contact Informations </h2>
-            <p> Something to put in here the details </p>
-            <p> We must decide what we are going to add to the about page ... </p>
-        </div>
+
+        <>
+            <video
+                id='background_video'
+                className='background__video'
+                autoPlay
+                loop
+                muted>
+                <source src='/ferris.mp4' />
+            </video>
+
+           <Box 
+           display={'flex'} 
+           flexDirection={'column'}
+           justifyContent={'left'} 
+           bgcolor={''} 
+           maxWidth={'fit-content'}
+           sx={{
+            letterSpacing: '0.15em',
+            padding: '1rem 1.25rem',
+            color: 'white'}}>
+
+    <h2>Welcome to our Virtual Museum!</h2>
+    <p>In this Project we have attempted to digitize <br/>
+    the renowned Art Institute of Chicago, as to demonstrate <br/>
+    our working knowledge of a fullstack application. <br/>
+    Our stack for this application are: React, Java + Spring,  <br/>
+    Typescript, and PostgreSQL. Feel free to contact us! 
+        
+        </p>
+  
+           </Box>
+        </>
     )
 }
 
-export default  About
+export default About

@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useState, useEffect } from 'react';
 import MainGallery from './(Components)/MainGallery';
 import { Data } from './(Interfaces)/interfaces';
