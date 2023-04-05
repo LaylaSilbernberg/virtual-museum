@@ -26,7 +26,7 @@ const About = () => {
             padding: '1rem 1.25rem',
             color: 'white'}}>
 
-<h2>Welcome to our Virtual Museum!</h2>
+    <h2>Welcome to our Virtual Museum!</h2>
     <p>In this Project we have attempted to digitize <br/>
     the renowned Art Institute of Chicago, as to demonstrate <br/>
     our working knowledge of a fullstack application. <br/>
