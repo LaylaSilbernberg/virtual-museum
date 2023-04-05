@@ -67,12 +67,6 @@ body{
     }
   
 
-/* 
-.image__artwork:hover{
-    box-shadow: 0.05rem 0.05rem 0.5rem 0.5rem #808080;
-    cursor: pointer;
-} */
-
 .largeImage__container{
     background: rgba(27, 26, 26, 0.2); 
     backdrop-filter: blur(0.5rem);
