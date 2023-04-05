@@ -10,7 +10,7 @@ const MainGallery = ({pageData}: GalleryProp) => {
   return (
 <main className="homepage__main">
   <Box
-  sx={{position: 'sticky',
+  sx={{position: 'absolute',
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
@@ -27,7 +27,7 @@ position:'absolute'}}
   </IconButton>
   </Box>
   <Box
-  sx={{position: 'sticky',
+  sx={{position: 'absolute',
   flexDirection: 'row',
   width: '100vw',
   display: 'flex',
