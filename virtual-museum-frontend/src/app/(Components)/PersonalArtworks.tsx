@@ -18,7 +18,7 @@ const PersonalArtworks = ({id, paramId, image_id, title, place_of_origin, artist
     const matches = useMediaQuery(theme.breakpoints.up('sm'));
     const video: HTMLVideoElement = document.querySelector(".background__video")!;
     //const url = `https://virtualmuseumappreal.azurewebsites.net/api/deleteImage/${paramId}?imageId=${id}`
-    const url = `http://localhost:8080/api/getGallery/deleteImage/${paramId}?imageId=${id}`;
+    const url = `http://localhost:8080/api/deleteImage/${paramId}?imageId=${id}`;
     const router = useRouter();
     const [hideImage, setHideImage] = useState<boolean>(false)
     const [appear, setAppear] = useState<boolean>(false)
