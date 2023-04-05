@@ -10,8 +10,8 @@ const PersonalGallery = ({params} : {params: {id: string}}) => {
 
 const [page, setPage] = useState<Image[]>();
 const getPage = async() => {
-    const url = `https://virtualmuseumappreal.azurewebsites.net/api/getGallery/${params.id}`;
-    //const url = `http://localhost:8080/api/getGallery/${params.id}`;
+    //const url = `https://virtualmuseumappreal.azurewebsites.net/api/getGallery/${params.id}`;
+    const url = `http://localhost:8080/api/getGallery/${params.id}`;
 
     const data = await fetch(url, {next: {revalidate: 10}});
     const result = await data.json();
