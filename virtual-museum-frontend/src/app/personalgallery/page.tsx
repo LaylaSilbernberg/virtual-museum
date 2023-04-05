@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation'
     
     const PersonalGalleryList = () => {
         const [page, setPage] = useState<PersonalGallery[]>();
-        const url = 'http://localhost:8080/api/';
+        const url = 'https://virtualmuseumappreal.azurewebsites.net/api/';
         const router = useRouter();
     
         const getGalleries = async() => {
