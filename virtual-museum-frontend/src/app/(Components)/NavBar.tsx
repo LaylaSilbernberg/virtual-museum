@@ -5,6 +5,7 @@ import React from 'react'
 import { AppBar, Box, Container, Stack} from '@mui/material'
 import { maxWidth } from '@mui/system'
 import Image from 'next/image'
+import MenuComponent from './MenuComponent'
 
 const NavBar = () => {
   return (
@@ -25,21 +26,24 @@ const NavBar = () => {
             justifyContent: 'flex-start',
             alignContent: 'center',
             alignItems: 'center',
-            color: 'white'
+            color: 'white',
+            width: '100vw'
           }}
-      maxWidth='xl'
+
       className='link__container'>
         <Image src={'https://upload.wikimedia.org/wikipedia/commons/3/32/Art_Institute_of_Chicago_logo.svg'} width={72} height={72} alt='Art Institute of Chicago logo'/>
         <Stack
         sx={{
           marginLeft: '1rem',
-          columnGap: '1rem'
+          columnGap: '0.5rem'
         }}
         direction={'row'}
+
         className='nav__link-stack'>
         <Link href={"/"} className="nav__links">Home</Link>
         <Link href={"/about"} className="nav__links">About</Link>
         <Link href={`/personalgallery/52`} className="nav__links">Personal Gallery</Link>
+        <MenuComponent/>
         </Stack>
         </Box>
     </AppBar>
