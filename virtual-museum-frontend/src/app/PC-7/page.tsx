@@ -155,7 +155,7 @@ const ArtsOfAsia = () => {
                 {page?.filter((element) => element.image_id).map((element) => {
                     return <Artworks
                         key={element.id}
-                        id={52}
+                        id={1}
                         department_title={element.department_title}
                         department_id={element.department_id}
                         thumbnail={element.thumbnail}

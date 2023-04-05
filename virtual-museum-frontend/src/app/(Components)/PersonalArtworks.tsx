@@ -4,6 +4,9 @@ import {PersonalArtworkProp} from '../(Props)/props'
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import PersonalPopUp from './PersonalPopUp';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
@@ -32,8 +35,9 @@ const deleteImage = async() =>{
     headers: {
       'Access-Control-Allow-Origin' : '*'
     }
-  }).then(() => {setHideImage(true)
-    setOpenImage(false)});
+  }).then(() => {setHideImage(true),
+    setOpenImage(false),
+  toast('Image has been deleted')});
 }
 
   return (

@@ -1,12 +1,13 @@
 import React, {useEffect, useState } from 'react'
 import { Box, Button, Card, CardContent, Grid, Grow, IconButton, Typography, useMediaQuery, useTheme} from '@mui/material';
 import { ArtworkProps } from '../(Props)/props'
-
 import Popup from 'reactjs-popup';
 import { FavoriteBorder, ThumbUp } from '@mui/icons-material';
 import { Data } from '../(Interfaces)/interfaces';
 import PopupComponent from './PopupComponent';
 import Image from "next/image";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -39,7 +40,7 @@ const Artworks = ({id, image_id, title, artist_display, place_of_origin, thumbna
           "Content-Type": "application/json"
         },
         body: JSON.stringify(requestBody)
-      });
+      }).then(() => toast('Image has been saved'));
     }
 
     useEffect(() => setAppear(true), [])
