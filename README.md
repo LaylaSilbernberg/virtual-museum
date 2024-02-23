@@ -3,8 +3,6 @@
 
 This was the final project that me, @sabinbajra, @DanW12 delivered at the end of a two-week sprint as the capstone of the challenging SALT Bootcamp. We are proud of what we were able to achieve in this short period of time. It was fun, to boot.
 
----
-
 ## Walkthrough
 Below is a video detailing how the app looked while live: 
 
